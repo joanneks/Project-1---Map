@@ -1,7 +1,9 @@
 function searchFlat(lat,lng,address){
     let searchMarker = L.marker([lat,lng]);
     searchMarker.addTo(map);
-    searchMarker.bindPopup(`<p>${address}</p>`)
+    searchMarker.bindPopup(`
+    <p>${address}</p>
+    `)
     map.setView([lat,lng],13)
 }
 
@@ -21,12 +23,14 @@ async function onemapSearch(){
     let lat = postalSearch.data.results[0].LATITUDE;
     let lng = postalSearch.data.results[0].LONGITUDE;
     let address = postalSearch.data.results[0].ADDRESS;
-    console.log(lat);
+    // let blkRoadName = postalSearch.data.results[0].BLK_NO + postalSearch.data.results[0].ROAD_NAME;
+    console.log(postalSearch.data.results);
     if(lat==undefined||lng==undefined||address==undefined){
         let noResultsDiv = document.querySelector('#noResultsDiv').innerHTML;
         noResultsDiv="No results found. Key in postal code for accuracy.";
     } else{
-        searchFlat(lat,lng,address);
+        
+      searchFlat(lat,lng,address);
     }
   });
 };
