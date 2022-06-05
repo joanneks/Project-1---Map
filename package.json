@@ -1,0 +1,22 @@
+{
+  "name": "project-1---map",
+  "version": "1.0.0",
+  "description": "Map for resale flat buyers",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joanneks/Project-1---Map.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joanneks/Project-1---Map/issues"
+  },
+  "homepage": "https://github.com/joanneks/Project-1---Map#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
