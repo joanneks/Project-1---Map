@@ -1,4 +1,4 @@
-let map = L.map('map')
+const map = L.map('map')
 function createMap(){
     // Singapore Lat Long 1.3521° N, 103.8198° E
     let singapore = [1.3521,103.8198];
