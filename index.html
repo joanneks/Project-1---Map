@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,32 +8,45 @@
     <title>Map for resale flat buyers</title>
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
-    integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
-    crossorigin=""/>
+        integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+        crossorigin="" />
+    <!-- Leaflet Clustering CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css" />
     <!-- Own CSS -->
     <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
+
 <body>
     <div>
         <label>Postal Code:</label>
-        <input type="text" id="postalCodeSearch"/>
+        <input type="text" id="postalCodeSearch" />
         <button id="searchBtn">Search</button>
     </div>
     <div id="noResultsDiv"></div>
     <div id="map"></div>
     <!-- Axios Javascript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js" integrity="sha512-xIPqqrfvUAc/Cspuj7Bq0UtHNo/5qkdyngx6Vwt+tmbvTLDszzXM0G6c91LXmGrRx8KEPulT+AfOOez+TeVylg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js"
+        integrity="sha512-xIPqqrfvUAc/Cspuj7Bq0UtHNo/5qkdyngx6Vwt+tmbvTLDszzXM0G6c91LXmGrRx8KEPulT+AfOOez+TeVylg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- Leaflet Javascript -->
     <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
-   integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
-   crossorigin=""></script>
-   <!-- Map Javascript-->
-   <script src="map.js"></script>
-   <!-- Search By Postal Code Javascript -->
-   <script src="searchByPostalCode.js"></script>
+        integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+        crossorigin=""></script>
+    <!-- Leaflet Clustering Javascript -->
+    <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster-src.js"></script>
+    <!-- Map Javascript-->
+    <script src="js-folder/map.js"></script>
+    <!-- Capitalise First Letter Javascript-->
+    <script src="js-folder/capitaliseFirstLetter.js"></script>
+    <!-- Search Flat By Postal Code Javascript -->
+    <script src="js-folder/searchFlatByPostalCode.js"></script>
+    <!-- Search Supermarket Javascript -->
+    <script src="js-folder/searchSupermarket.js"></script>
     <!-- Search Resale Price Javascript -->
-    <script src="searchResaleInfo.js"></script>
-   <!-- Own Javascript -->
-   <script src="script.js"></script>
+    <script src="js-folder/searchResaleInfo.js"></script>
+    <!-- Own Javascript -->
+    <script src="script.js"></script>
 </body>
+
 </html>

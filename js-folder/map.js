@@ -1,5 +1,5 @@
-const map = L.map('map')
 function createMap(){
+    const map = L.map('map')
     // Singapore Lat Long 1.3521° N, 103.8198° E
     let singapore = [1.3521,103.8198];
     map.setView(singapore,13);
@@ -12,4 +12,5 @@ function createMap(){
         zoomOffset: -1,
         accessToken: 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw' //demo access token
     }).addTo(map);
+    return map;
 };
