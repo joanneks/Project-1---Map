@@ -1,4 +1,4 @@
 let map = createMap();
 searchFlatbyPostalCode();
-searchForSupermarkets();
-getTrainStations();
+searchSupermarkets();
+searchTrainStations();

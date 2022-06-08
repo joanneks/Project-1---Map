@@ -1,4 +1,4 @@
-async function getTrainStations() {
+async function searchTrainStations() {
   let response = await axios.get('02-json/trainStations.json');
   let mrtStationsAll = response.data;
   let trainClusterLayer = L.markerClusterGroup();
@@ -71,10 +71,8 @@ async function getTrainStations() {
         `);
   }
   // Add trainClusterLayer to map
-  // trainClusterLayer.addTo(map); -->this will show an error but markers will still show, why the following 2 lines is fine
-  // return;
-  map.addLayer(trainClusterLayer);
-  return trainClusterLayer;
+  trainClusterLayer.addTo(map); 
+  return;
 
 };
-getTrainStations();
+// getTrainStations();

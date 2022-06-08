@@ -1,4 +1,4 @@
-async function searchForSupermarkets() {
+async function searchSupermarkets() {
   let response = await axios.get('01-geojson/supermarkets.geojson');
   let allSupermarkets = response.data.features;
   let supermarketClusterLayer = L.markerClusterGroup();
