@@ -1,38 +1,64 @@
-function searchFlat(lat, lng, address) {
+function addMarker(lat, lng, address, iconUrl, iconSizeX, iconSizeY) {
   //set marker icon
-  var searchFlatIcon = L.icon({
-    iconUrl: "images-folder/searchFlat.png",
-    iconSize: [60, 60]
+  let searchFlatIcon = L.icon({
+    iconUrl: iconUrl,
+    iconSize: [iconSizeX,iconSizeY]
   });
 
   // create marker and add to map
   let searchMarker = L.marker([lat, lng], { icon: searchFlatIcon, zIndexOffset: 1000 });
   searchMarker.addTo(map);
   searchMarker.bindPopup(`<p>${address}</p>`)
-  map.setView([lat, lng], 13)
+
+}
+function addMarkerCircle(lat, lng){
+  //create circle marker for radius
+  let searchMarkerCircle = L.circle([lat, lng], { radius: 1000 });
+  searchMarkerCircle.addTo(map);
 }
 
 async function searchFlatbyPostalCode() {
-  const BASE_API_URL1 = "https://developers.onemap.sg/commonapi/search";
+  const BASE_API_URL = "https://developers.onemap.sg/commonapi/search";
   let searchBtn = document.querySelector('#searchBtn');
   let searchVal = document.querySelector('#postalCodeSearch')
 
   searchBtn.addEventListener('click', async function () {
     alert('clicked');
-    let postalSearch = await axios.get(BASE_API_URL1, {
+    let postalSearch = await axios.get(BASE_API_URL, {
       'params': {
         'searchVal': searchVal.value,
         'returnGeom': 'Y',
         'getAddrDetails': 'Y',
       }
     });
-
-    let lat = postalSearch.data.results[0].LATITUDE;
-    let lng = postalSearch.data.results[0].LONGITUDE;
-    let address = capitaliseFirstLetter(postalSearch.data.results[0].ADDRESS.toLowerCase());
+    
+    let searchLat = parseFloat(postalSearch.data.results[0].LATITUDE);
+    let searchLng = parseFloat(postalSearch.data.results[0].LONGITUDE);
+    let searchAddress = capitaliseFirstLetter(postalSearch.data.results[0].ADDRESS.toLowerCase());
     console.log(postalSearch.data.results);
 
-    searchFlat(lat, lng, address);
+    let lat=1.3505;
+    let lng=103.8727;
+    function setBoundary(lat, lng, searchLat, searchLng){
+      //set boundary to display markers
+      let kmConverterToDegree = 1/111;
+      let latBoundaryTop = searchLat + 1 * kmConverterToDegree;
+      let latBoundaryBottom = searchLat - 1 * kmConverterToDegree;
+      let lngBoundaryRight = searchLng + 1 * kmConverterToDegree;
+      let lngBoundaryLeft = searchLng - 1 * kmConverterToDegree;
+      let markerBoundaryCondition = lat<latBoundaryTop && lat>latBoundaryBottom && lng<lngBoundaryRight && lng>lngBoundaryLeft;
+      // console.log(lat,lng);
+      console.log(searchLat,searchLng);
+      console.log(latBoundaryTop,latBoundaryBottom,lngBoundaryRight,lngBoundaryLeft);
+      console.log(markerBoundaryCondition);
+      
+      return;
+      };
+    setBoundary(lat, lng, searchLat, searchLng);
+
+    addMarker(searchLat, searchLng, searchAddress,"images-folder/searchFlat.png",60,60);
+    map.setView([lat, lng], 13)
+    addMarkerCircle(searchLat, searchLng);
   });
 };
 
