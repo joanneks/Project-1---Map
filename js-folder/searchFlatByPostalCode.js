@@ -57,7 +57,7 @@ async function searchFlatbyPostalCode() {
     setBoundary(lat, lng, searchLat, searchLng);
 
     addMarker(searchLat, searchLng, searchAddress,"images-folder/searchFlat.png",60,60);
-    map.setView([lat, lng], 13)
+    map.setView([searchLat, searchLng], 15)
     addMarkerCircle(searchLat, searchLng);
   });
 };

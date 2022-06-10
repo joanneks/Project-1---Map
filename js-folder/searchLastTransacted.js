@@ -55,7 +55,7 @@ async function searchLastTransacted(blkRoadName){
           <p>Lease Commencement Year: ${commencementYear}</p>
           <p>Remaining Years: ${remainingYears}</p>
           <p>Last Transacted Price: ${lastTransactedPrice}</p>
-          <p>Flat Type (Area): ${flatType}, (${flatArea}) sqm</p>
+          <p>Flat Type (Area): ${flatType}, (${flatArea} sqm)</p>
           <p>Flat Level Range: ${flatStoreyRange}</p>
           `)
           lastTransactedMarker.addTo(lastTransactedClusterLayer);
