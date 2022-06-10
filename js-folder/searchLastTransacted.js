@@ -14,15 +14,19 @@ async function searchLastTransacted(blkRoadName){
     for (let i = 126935; i <= resalePriceInfo.length;i++){
       let blkStreetName = resalePriceInfo[i].block + " " + resalePriceInfo[i].street_name;
       let monthTransacted = resalePriceInfo[i].month;
+      let townTransacted = resalePriceInfo[i].town;
       let commencementYear = resalePriceInfo[i].lease_commence_date;
       let remainingYears = resalePriceInfo[i].remaining_lease;
       let lastTransactedPrice = resalePriceInfo[i].resale_price;
       let flatType = capitaliseFirstLetter(resalePriceInfo[i].flat_type.toLowerCase());
       let flatArea = resalePriceInfo[i].floor_area_sqm;
       let flatStoreyRange = resalePriceInfo[i].storey_range.toLowerCase();
-      console.log(blkStreetName);
+      // console.log(blkStreetName);
       // console.log(commencementYear);
       async function searchLastTransactedPostalCode(blkStreetName) {
+        //searchLastTransacted.js:15 Uncaught (in promise) 
+        //TypeError: Cannot read properties of undefined (reading 'block') at searchLastTransacted
+        //-->error because the blkStreetName from data.gov API cannot return lat lng values from onemap's API
           const BASE_API_URL1 = "https://developers.onemap.sg/commonapi/search";
           let postalSearch = await axios.get(BASE_API_URL1, {
               'params': {
@@ -46,12 +50,12 @@ async function searchLastTransacted(blkRoadName){
           let lastTransactedMarker = L.marker([lat, lng], { icon: lastTransactedIcon});
           lastTransactedMarker.addTo(map);
           lastTransactedMarker.bindPopup(`
-          <p>${address}</p>
-          <p>Month Transacted: ${monthTransacted}</p>
+          <p>TOWN: ${townTransacted}<span style="margin-left:60px">Sold On: ${monthTransacted}</span></p>
+          <p>${address} }</p>
           <p>Lease Commencement Year: ${commencementYear}</p>
           <p>Remaining Years: ${remainingYears}</p>
           <p>Last Transacted Price: ${lastTransactedPrice}</p>
-          <p>Flat Type: ${flatType}   Flat Area: ${flatArea} sqm</p>
+          <p>Flat Type (Area): ${flatType}, (${flatArea}) sqm</p>
           <p>Flat Level Range: ${flatStoreyRange}</p>
           `)
           lastTransactedMarker.addTo(lastTransactedClusterLayer);
