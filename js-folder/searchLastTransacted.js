@@ -1,4 +1,5 @@
-async function searchLastTransacted(blkRoadName){
+let lastTransactedLayer = L.layerGroup();
+async function searchLastTransacted(){
     const BASE_API_URL ="https://data.gov.sg/api/action/datastore_search";
     const resource_id = "f1765b54-a209-4718-8d38-a39237f502b3";
     let resalePriceData = await axios.get(BASE_API_URL,{
@@ -22,7 +23,6 @@ async function searchLastTransacted(blkRoadName){
       let flatArea = resalePriceInfo[i].floor_area_sqm;
       let flatStoreyRange = resalePriceInfo[i].storey_range.toLowerCase();
       // console.log(blkStreetName);
-      // console.log(commencementYear);
       async function searchLastTransactedPostalCode(blkStreetName) {
         //searchLastTransacted.js:15 Uncaught (in promise) 
         //TypeError: Cannot read properties of undefined (reading 'block') at searchLastTransacted
@@ -48,7 +48,6 @@ async function searchLastTransacted(blkRoadName){
         
           // create marker and add to map
           let lastTransactedMarker = L.marker([lat, lng], { icon: lastTransactedIcon});
-          lastTransactedMarker.addTo(map);
           lastTransactedMarker.bindPopup(`
           <p>TOWN: ${townTransacted}<span style="margin-left:60px">Sold On: ${monthTransacted}</span></p>
           <p>${address} }</p>
@@ -61,7 +60,8 @@ async function searchLastTransacted(blkRoadName){
           lastTransactedMarker.addTo(lastTransactedClusterLayer);
       };
       searchLastTransactedPostalCode(blkStreetName);
-      lastTransactedClusterLayer.addTo(map);
+      lastTransactedClusterLayer.addTo(lastTransactedLayer);
+      lastTransactedLayer.addTo(map);
                
     }
     // let resaleBlock = resalePriceData.data.result.records[0].block;

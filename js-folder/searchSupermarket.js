@@ -1,3 +1,5 @@
+let supermarketLayer = L.layerGroup();
+
 async function searchSupermarkets() {
   let response = await axios.get('01-geojson/supermarkets.geojson');
   let allSupermarkets = response.data.features;
@@ -34,5 +36,6 @@ async function searchSupermarkets() {
         <p>Address: ${supermarketAddress}</p>
         `)
   };
-  supermarketClusterLayer.addTo(map);
+  supermarketClusterLayer.addTo(supermarketLayer);
+  supermarketLayer.addTo(map);
 };

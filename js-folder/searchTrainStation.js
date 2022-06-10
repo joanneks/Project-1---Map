@@ -1,7 +1,8 @@
+let trainLayer = L.layerGroup();
+
 async function searchTrainStations() {
   let response = await axios.get('02-json/trainStations.json');
   let mrtStationsAll = response.data;
-  let trainClusterLayer = L.markerClusterGroup();
 
   //create empty array to create one object for each mrt (i.e no duplicate mrt station names) 
   //trainStations.json has objects with the same mrt names but different mrtNo
@@ -63,8 +64,8 @@ async function searchTrainStations() {
     // create marker
     let trainMarker = L.marker([lat, lng], { icon: trainIcon });
 
-    //Add to trainClusterLayer
-    trainMarker.addTo(trainClusterLayer);
+    //Add to trainLayer
+    trainMarker.addTo(trainLayer);
     trainMarker.bindPopup(`
         <p>${stationName}</p>
         <p>Station No: ${stationNo}</p>
@@ -72,7 +73,7 @@ async function searchTrainStations() {
 
   }
   // Add trainClusterLayer to map
-  trainClusterLayer.addTo(map); 
+  trainLayer.addTo(map); 
   return;
 
 };

@@ -1,3 +1,5 @@
+let searchFlatLayer = L.layerGroup();
+
 function addMarker(lat, lng, address, iconUrl, iconSizeX, iconSizeY) {
   //set marker icon
   let searchFlatIcon = L.icon({
@@ -7,7 +9,8 @@ function addMarker(lat, lng, address, iconUrl, iconSizeX, iconSizeY) {
 
   // create marker and add to map
   let searchMarker = L.marker([lat, lng], { icon: searchFlatIcon, zIndexOffset: 1000 });
-  searchMarker.addTo(map);
+  searchMarker.addTo(searchFlatLayer);
+  searchFlatLayer.addTo(map);
   searchMarker.bindPopup(`<p>${address}</p>`)
 
 }
@@ -37,24 +40,24 @@ async function searchFlatbyPostalCode() {
     let searchAddress = capitaliseFirstLetter(postalSearch.data.results[0].ADDRESS.toLowerCase());
     console.log(postalSearch.data.results);
 
-    let lat=1.3505;
-    let lng=103.8727;
-    function setBoundary(lat, lng, searchLat, searchLng){
-      //set boundary to display markers
-      let kmConverterToDegree = 1/111;
-      let latBoundaryTop = searchLat + 1 * kmConverterToDegree;
-      let latBoundaryBottom = searchLat - 1 * kmConverterToDegree;
-      let lngBoundaryRight = searchLng + 1 * kmConverterToDegree;
-      let lngBoundaryLeft = searchLng - 1 * kmConverterToDegree;
-      let markerBoundaryCondition = lat<latBoundaryTop && lat>latBoundaryBottom && lng<lngBoundaryRight && lng>lngBoundaryLeft;
-      // console.log(lat,lng);
-      console.log(searchLat,searchLng);
-      console.log(latBoundaryTop,latBoundaryBottom,lngBoundaryRight,lngBoundaryLeft);
-      console.log(markerBoundaryCondition);
+    // let lat=1.3505;
+    // let lng=103.8727;
+    // function setBoundary(lat, lng, searchLat, searchLng){
+    //   //set boundary to display markers
+    //   let kmConverterToDegree = 1/111;
+    //   let latBoundaryTop = searchLat + 1 * kmConverterToDegree;
+    //   let latBoundaryBottom = searchLat - 1 * kmConverterToDegree;
+    //   let lngBoundaryRight = searchLng + 1 * kmConverterToDegree;
+    //   let lngBoundaryLeft = searchLng - 1 * kmConverterToDegree;
+    //   let markerBoundaryCondition = lat<latBoundaryTop && lat>latBoundaryBottom && lng<lngBoundaryRight && lng>lngBoundaryLeft;
+    //   // console.log(lat,lng);
+    //   console.log(searchLat,searchLng);
+    //   console.log(latBoundaryTop,latBoundaryBottom,lngBoundaryRight,lngBoundaryLeft);
+    //   console.log(markerBoundaryCondition);
       
-      return;
-      };
-    setBoundary(lat, lng, searchLat, searchLng);
+    //   return;
+    //   };
+    // setBoundary(lat, lng, searchLat, searchLng);
 
     addMarker(searchLat, searchLng, searchAddress,"images-folder/searchFlat.png",60,60);
     map.setView([searchLat, searchLng], 15)
