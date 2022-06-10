@@ -4,22 +4,23 @@ async function searchLastTransacted(blkRoadName){
     let resalePriceData = await axios.get(BASE_API_URL,{
         'params': {
           'resource_id': resource_id,
-            'limit': 100
+            'limit': 127935
             // 'limit': 127935
         }
     });
     let resalePriceInfo = resalePriceData.data.result.records;
     let lastTransactedClusterLayer = L.markerClusterGroup();
 
-    for (let i = 0; i <= resalePriceInfo.length;i++){
+    for (let i = 126935; i <= resalePriceInfo.length;i++){
       let blkStreetName = resalePriceInfo[i].block + " " + resalePriceInfo[i].street_name;
+      let monthTransacted = resalePriceInfo[i].month;
       let commencementYear = resalePriceInfo[i].lease_commence_date;
       let remainingYears = resalePriceInfo[i].remaining_lease;
       let lastTransactedPrice = resalePriceInfo[i].resale_price;
       let flatType = capitaliseFirstLetter(resalePriceInfo[i].flat_type.toLowerCase());
       let flatArea = resalePriceInfo[i].floor_area_sqm;
       let flatStoreyRange = resalePriceInfo[i].storey_range.toLowerCase();
-      // console.log(blkStreetName);
+      console.log(blkStreetName);
       // console.log(commencementYear);
       async function searchLastTransactedPostalCode(blkStreetName) {
           const BASE_API_URL1 = "https://developers.onemap.sg/commonapi/search";
@@ -46,11 +47,11 @@ async function searchLastTransacted(blkRoadName){
           lastTransactedMarker.addTo(map);
           lastTransactedMarker.bindPopup(`
           <p>${address}</p>
+          <p>Month Transacted: ${monthTransacted}</p>
           <p>Lease Commencement Year: ${commencementYear}</p>
           <p>Remaining Years: ${remainingYears}</p>
           <p>Last Transacted Price: ${lastTransactedPrice}</p>
-          <p>Flat Type: ${flatType}</p>
-          <p>Flat Area: ${flatArea} sqm</p>
+          <p>Flat Type: ${flatType}   Flat Area: ${flatArea} sqm</p>
           <p>Flat Level Range: ${flatStoreyRange}</p>
           `)
           lastTransactedMarker.addTo(lastTransactedClusterLayer);
