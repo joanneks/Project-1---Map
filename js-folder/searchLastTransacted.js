@@ -10,7 +10,6 @@ async function searchLastTransacted(){
         }
     });
     let resalePriceInfo = resalePriceData.data.result.records;
-    let lastTransactedClusterLayer = L.markerClusterGroup();
 
     for (let i = 126935; i <= resalePriceInfo.length;i++){
       let blkStreetName = resalePriceInfo[i].block + " " + resalePriceInfo[i].street_name;
@@ -48,6 +47,7 @@ async function searchLastTransacted(){
         
           // create marker and add to map
           let lastTransactedMarker = L.marker([lat, lng], { icon: lastTransactedIcon});
+          lastTransactedMarker.addTo(lastTransactedLayer);
           lastTransactedMarker.bindPopup(`
           <p>TOWN: ${townTransacted}<span style="margin-left:60px">Sold On: ${monthTransacted}</span></p>
           <p>${address} }</p>
@@ -57,10 +57,8 @@ async function searchLastTransacted(){
           <p>Flat Type (Area): ${flatType}, (${flatArea} sqm)</p>
           <p>Flat Level Range: ${flatStoreyRange}</p>
           `)
-          lastTransactedMarker.addTo(lastTransactedClusterLayer);
       };
       searchLastTransactedPostalCode(blkStreetName);
-      lastTransactedClusterLayer.addTo(lastTransactedLayer);
       lastTransactedLayer.addTo(map);
                
     }

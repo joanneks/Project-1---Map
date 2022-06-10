@@ -72,7 +72,7 @@ async function searchTrainStations() {
         `);
 
   }
-  // Add trainClusterLayer to map
+  // Add trainLayer to map
   trainLayer.addTo(map); 
   return;
 

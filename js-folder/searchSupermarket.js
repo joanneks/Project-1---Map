@@ -3,7 +3,6 @@ let supermarketLayer = L.layerGroup();
 async function searchSupermarkets() {
   let response = await axios.get('01-geojson/supermarkets.geojson');
   let allSupermarkets = response.data.features;
-  let supermarketClusterLayer = L.markerClusterGroup();
 
   //Create marker for each supermarket coordinates from geojson lat,lng
   for (supermarket of allSupermarkets) {
@@ -29,13 +28,12 @@ async function searchSupermarkets() {
     let supermarketPostalCode = eachSupermarketDescription[4].innerHTML;
     let supermarketAddress = (supermarketBlock + " " + supermarketStreet + ", S" + supermarketPostalCode);
 
-    //Add to supermarketClusterLayer
-    supermarketMarker.addTo(supermarketClusterLayer);
+    //Add to supermarketLayer
+    supermarketMarker.addTo(supermarketLayer);
     supermarketMarker.bindPopup(`
         <p>${supermarketName}</p>
         <p>Address: ${supermarketAddress}</p>
         `)
   };
-  supermarketClusterLayer.addTo(supermarketLayer);
   supermarketLayer.addTo(map);
 };
