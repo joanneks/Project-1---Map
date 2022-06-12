@@ -23,48 +23,47 @@ async function searchLastTransacted(latBoundaryTop,latBoundaryBottom,lngBoundary
     let flatArea = resalePriceInfo[i].floor_area_sqm;
     let flatStoreyRange = resalePriceInfo[i].storey_range.toLowerCase();
     // console.log(blkStreetName);
-      async function searchLastTransactedPostalCode(blkStreetName,latBoundaryTop,latBoundaryBottom,lngBoundaryRight,lngBoundaryLeft) {
-        //searchLastTransacted.js:15 Uncaught (in promise) 
-        //TypeError: Cannot read properties of undefined (reading 'block') at searchLastTransacted
-        //-->error because the blkStreetName from data.gov API cannot return lat lng values from onemap's API
-          const BASE_API_URL1 = "https://developers.onemap.sg/commonapi/search";
-          let postalSearch = await axios.get(BASE_API_URL1, {
-              'params': {
-                'searchVal': blkStreetName,
-                'returnGeom': 'Y',
-                'getAddrDetails': 'Y',
-              }
-            });
-          let lat = parseFloat(postalSearch.data.results[0].LATITUDE);
-          let lng = parseFloat(postalSearch.data.results[0].LONGITUDE);
-          let address = capitaliseFirstLetter(postalSearch.data.results[0].ADDRESS.toLowerCase());
-          // console.log(postalSearch.data.results);
+    async function searchLastTransactedPostalCode(blkStreetName,latBoundaryTop,latBoundaryBottom,lngBoundaryRight,lngBoundaryLeft) {
+      //searchLastTransacted.js:15 Uncaught (in promise) 
+      //TypeError: Cannot read properties of undefined (reading 'block') at searchLastTransacted
+      //-->error because the blkStreetName from data.gov API cannot return lat lng values from onemap's API
+      const BASE_API_URL1 = "https://developers.onemap.sg/commonapi/search";
+      let postalSearch = await axios.get(BASE_API_URL1, {
+        'params': {
+          'searchVal': blkStreetName,
+          'returnGeom': 'Y',
+          'getAddrDetails': 'Y',
+        }
+      });
+      let lat = parseFloat(postalSearch.data.results[0].LATITUDE);
+      let lng = parseFloat(postalSearch.data.results[0].LONGITUDE);
+      let address = capitaliseFirstLetter(postalSearch.data.results[0].ADDRESS.toLowerCase());
+      // console.log(postalSearch.data.results);
 
-          if(lat<latBoundaryTop && lat>latBoundaryBottom && lng<lngBoundaryRight && lng>lngBoundaryLeft){
-            //set marker icon  
-            let lastTransactedIcon = L.icon({
-              iconUrl: "images-folder/lastTransacted.png",
-              iconSize: [40,40]
-            });
-          
-            // create marker, bindpopup ,add to cluster group
-            let lastTransactedMarker = L.marker([lat, lng], { icon: lastTransactedIcon});
-            lastTransactedMarker.addTo(lastTransactedClusterGroup);
-            //add clustergroup to later
-            lastTransactedClusterGroup.addTo(lastTransactedLayer);
-            lastTransactedMarker.bindPopup(`
-            <p>TOWN: ${townTransacted}
-            <span>Sold On: ${monthTransacted}</span></p>
-            <p>${address} }</p>
-            <p>Lease Commencement Year: ${commencementYear}</p>
-            <p>Remaining Years: ${remainingYears}</p>
-            <p>Last Transacted Price: ${lastTransactedPrice}</p>
-            <p>Flat Type (Area): ${flatType}, (${flatArea} sqm)</p>
-            <p>Flat Level Range: ${flatStoreyRange}</p>
-            `)
-          };
-        };
-        searchLastTransactedPostalCode(blkStreetName,latBoundaryTop,latBoundaryBottom,lngBoundaryRight,lngBoundaryLeft);
-
+      if(lat<latBoundaryTop && lat>latBoundaryBottom && lng<lngBoundaryRight && lng>lngBoundaryLeft){
+        //set marker icon  
+        let lastTransactedIcon = L.icon({
+          iconUrl: "images-folder/lastTransacted.png",
+          iconSize: [40,40]
+        });
+      
+        // create marker, bindpopup ,add to cluster group
+        let lastTransactedMarker = L.marker([lat, lng], { icon: lastTransactedIcon});
+        lastTransactedMarker.addTo(lastTransactedClusterGroup);
+        //add clustergroup to later
+        lastTransactedClusterGroup.addTo(lastTransactedLayer);
+        lastTransactedMarker.bindPopup(`
+        <p>TOWN: ${townTransacted}
+        <span>Sold On: ${monthTransacted}</span></p>
+        <p>${address} }</p>
+        <p>Lease Commencement Year: ${commencementYear}</p>
+        <p>Remaining Years: ${remainingYears}</p>
+        <p>Last Transacted Price: ${lastTransactedPrice}</p>
+        <p>Flat Type (Area): ${flatType}, (${flatArea} sqm)</p>
+        <p>Flat Level Range: ${flatStoreyRange}</p>
+        `)
+      };
+    };
+    searchLastTransactedPostalCode(blkStreetName,latBoundaryTop,latBoundaryBottom,lngBoundaryRight,lngBoundaryLeft);
   };
 };

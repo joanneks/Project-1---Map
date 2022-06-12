@@ -13,7 +13,7 @@ function addMarker(lat, lng, address, iconUrl, iconSizeX, iconSizeY) {
   searchFlatLayer.addTo(map);
   searchMarker.bindPopup(`
   <p>${address}</p>
-  <button id='${address}'>More Info</button>
+  <button >More Info</button>
   `)
 
 }
