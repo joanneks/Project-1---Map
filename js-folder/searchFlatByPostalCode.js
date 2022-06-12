@@ -47,6 +47,4 @@ async function searchFlatbyPostalCode(searchVal,searchRadius){
 
     addMarker(searchLat, searchLng, searchAddress,"images-folder/searchFlat.png",60,60);
     map.setView([searchLat, searchLng], 14.5)
-
-    addMarkerCircle(searchLat, searchLng, radius);
 }

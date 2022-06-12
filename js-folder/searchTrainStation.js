@@ -1,5 +1,7 @@
 let trainLayer = L.layerGroup();
 let mrtArr = [];
+
+//retrieve all mrt station details
 async function searchTrainStations() {
   let response = await axios.get('02-json/trainStations.json');
   let mrtStationsAll = response.data;
@@ -40,48 +42,26 @@ async function searchTrainStations() {
         };
     };
   };
-
-  // //extract out mrt details for the marker and bindpop
-  // for (eachMrt of mrtArr) {
-  //   let stationName = eachMrt.mrtName;
-  //   let lat = eachMrt.mrtLat;
-  //   let lng = eachMrt.mrtLng;
-  //   let stationNo = "";
-
-  //   //needs the for loop because the stationNo is in an array in mrtArr(object)
-  //   //Serangoon has 2 mrt station no. the for loop combines the 2 and adds it the stationNo which was declared as an empty string
-  //   for (let i = 0; i < 3; i++) {
-  //     if (i < eachMrt.mrtNo.length) {
-  //       stationNo += eachMrt.mrtNo[i] + ", ";
-  //     };
-  //   };
-  //   stationNo = stationNo.slice(0, stationNo.length - 2);
-
-
-  //   //show markers that are within the radius set by user. Refer to script.js file
-  //   function showTrainMarkers (latBoundaryTop, latBoundaryBottom,lngBoundaryRight,lngBoundaryLeft){
-  //     if(lat<latBoundaryTop && lat>latBoundaryBottom && lng<lngBoundaryRight && lng>lngBoundaryLeft){
-
-  //       //set marker icon
-  //       let trainIcon = L.icon({
-  //         iconUrl: "images-folder/train.png",
-  //         iconSize: [40, 40]
-  //       });
-
-  //       // create marker and add to trainLayer, set bindpopup
-  //       let trainMarker = L.marker([lat, lng], { icon: trainIcon });
-  //       trainMarker.addTo(trainLayer);
-  //       trainMarker.bindPopup(`
-  //         <p>${stationName}</p>
-  //         <p>Station No: ${stationNo}</p>
-  //         `);
-  //     }
-  //   }
-  //   showTrainMarkers(latBoundaryTop, latBoundaryBottom,lngBoundaryRight,lngBoundaryLeft);
-  // };
 };
 
+//show markers that are within the radius set by user.
+function showTrainMarkers (stationName,stationNo,lat,lng,latBoundaryTop,latBoundaryBottom,lngBoundaryRight,lngBoundaryLeft){
+  if(lat<latBoundaryTop && lat>latBoundaryBottom && lng<lngBoundaryRight && lng>lngBoundaryLeft){
+      //set marker icon
+      let trainIcon = L.icon({
+      iconUrl: "images-folder/train.png",
+      iconSize: [40, 40]
+      });
 
+      // create marker and add to trainLayer, set bindpopup
+      let trainMarker = L.marker([lat, lng], { icon: trainIcon });
+      trainMarker.addTo(trainLayer);
+      trainMarker.bindPopup(`
+      <p>${stationName}</p>
+      <p>Station No: ${stationNo}</p>
+      `);
+  };
+};
 
 
 //ORIGINAL CODE

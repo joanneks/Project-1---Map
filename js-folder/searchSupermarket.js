@@ -1,6 +1,6 @@
 let supermarketLayer = L.layerGroup();
 
-async function searchSupermarkets() {
+async function searchSupermarkets(latBoundaryTop,latBoundaryBottom,lngBoundaryRight,lngBoundaryLeft) {
   let response = await axios.get('01-geojson/supermarkets.geojson');
   let allSupermarkets = response.data.features;
 
@@ -9,14 +9,6 @@ async function searchSupermarkets() {
     let lng = supermarket.geometry.coordinates[0];
     let lat = supermarket.geometry.coordinates[1];
     let supermarketCoordinates = [lat, lng];
-
-    //set marker icon
-    var supermarketIcon = L.icon({
-      iconUrl: "images-folder/supermarket.png",
-      iconSize: [55, 55],
-      iconAnchor: [5, 5]
-    });
-    let supermarketMarker = L.marker(supermarketCoordinates, { icon: supermarketIcon })
 
     //Extract Supermarket name and address from Geojson
     let divElement = document.createElement('div');
@@ -28,11 +20,20 @@ async function searchSupermarkets() {
     let supermarketPostalCode = eachSupermarketDescription[4].innerHTML;
     let supermarketAddress = (supermarketBlock + " " + supermarketStreet + ", S" + supermarketPostalCode);
 
-    //Add to supermarketLayer
-    supermarketMarker.addTo(supermarketLayer);
-    supermarketMarker.bindPopup(`
+    if(lat<latBoundaryTop && lat>latBoundaryBottom && lng<lngBoundaryRight && lng>lngBoundaryLeft){
+      //set marker icon
+      var supermarketIcon = L.icon({
+        iconUrl: "images-folder/supermarket.png",
+        iconSize: [55, 55],
+        iconAnchor: [5, 5]
+      });
+      // create marker and add to supermarketLayer, set bindpopup
+      let supermarketMarker = L.marker(supermarketCoordinates, { icon: supermarketIcon });
+      supermarketMarker.addTo(supermarketLayer);
+      supermarketMarker.bindPopup(`
         <p>${supermarketName}</p>
         <p>Address: ${supermarketAddress}</p>
-        `)
+        `);
+    };
   };
 };

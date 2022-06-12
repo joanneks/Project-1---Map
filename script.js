@@ -26,13 +26,14 @@ document.querySelector('#searchBtn').addEventListener('click',async function(){
     addMarker(searchLat, searchLng, searchAddress,"images-folder/searchFlat.png",60,60);
     map.setView([searchLat, searchLng], 14.5)
 
-    //convert user input radius from km to m
+    //convert user input radius from km to m for circle marker in searchFlatByPostalCode.js
     let radius = searchRadius * 1000;
     if(radius == NaN || radius == false){
         radius = 1000;
     } else{
         radius = searchRadius*1000;
     };
+    //determine radius as default 1km without user input to set boundary
     if(searchRadius == NaN || searchRadius == false){
         searchRadius = 1;
     } else{
@@ -49,12 +50,15 @@ document.querySelector('#searchBtn').addEventListener('click',async function(){
     let lngBoundaryLeft = parseFloat(searchLng)- parseFloat(searchRadius*kmToDegreeConverter);
     // console.log(latBoundaryTop,latBoundaryBottom,lngBoundaryRight,lngBoundaryLeft);
 
-    await searchSupermarkets();
+    await searchSupermarkets(latBoundaryTop,latBoundaryBottom,lngBoundaryRight,lngBoundaryLeft);
+
+
+    //retrieve all mrt station details
     await searchTrainStations();
 
-    //extract out mrt details for the marker and bindpop
+    //extract out all mrt details for the marker and bindpop
+    //show train markers within the set boundary
     for (eachMrt of mrtArr) {
-        console.log(eachMrt)
         let stationName = eachMrt.mrtName;
         let lat = eachMrt.mrtLat;
         let lng = eachMrt.mrtLng;
@@ -69,31 +73,8 @@ document.querySelector('#searchBtn').addEventListener('click',async function(){
         };
         stationNo = stationNo.slice(0, stationNo.length - 2);
 
-
         //show markers that are within the radius set by user. Refer to script.js file
-        function showTrainMarkers (){
-            // console.log("called")
-            // console.log(latBoundaryTop,latBoundaryBottom,lngBoundaryRight,lngBoundaryLeft);
-            if(lat<latBoundaryTop && lat>latBoundaryBottom && lng<lngBoundaryRight && lng>lngBoundaryLeft){
-                console.log("ifblock")
-                //set marker icon
-                let trainIcon = L.icon({
-                iconUrl: "images-folder/train.png",
-                iconSize: [40, 40]
-                });
-
-                // create marker and add to trainLayer, set bindpopup
-                let trainMarker = L.marker([lat, lng], { icon: trainIcon });
-                trainMarker.addTo(trainLayer);
-                trainMarker.bindPopup(`
-                <p>${stationName}</p>
-                <p>Station No: ${stationNo}</p>
-                `);
-                // trainMarker.addTo(map);
-                
-            }
-        }
-        showTrainMarkers();
+        showTrainMarkers(stationName,stationNo,lat,lng,latBoundaryTop,latBoundaryBottom,lngBoundaryRight,lngBoundaryLeft);
     };
     
     await searchLastTransacted();
