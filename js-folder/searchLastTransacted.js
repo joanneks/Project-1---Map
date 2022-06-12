@@ -58,15 +58,6 @@ async function searchLastTransacted(){
           <p>Flat Level Range: ${flatStoreyRange}</p>
           `)
       };
-      searchLastTransactedPostalCode(blkStreetName);
-      lastTransactedLayer.addTo(map);
-               
+      searchLastTransactedPostalCode(blkStreetName);       
     }
-    // let resaleBlock = resalePriceData.data.result.records[0].block;
-    // let resaleStreet = resalePriceData.data.result.records[0].street_name
-    // console.log(resalePriceData.data.result.records[0].block);
-    // console.log(resalePriceData.data.result.records[0].street_name);
-    // console.log(resalePriceData.data.result.records[0].lease_commence_date);
 }
-
-searchLastTransacted();

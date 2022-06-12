@@ -35,5 +35,4 @@ async function searchSupermarkets() {
         <p>Address: ${supermarketAddress}</p>
         `)
   };
-  supermarketLayer.addTo(map);
 };
