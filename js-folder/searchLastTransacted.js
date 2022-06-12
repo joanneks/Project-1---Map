@@ -55,7 +55,7 @@ async function searchLastTransacted(latBoundaryTop,latBoundaryBottom,lngBoundary
         lastTransactedMarker.bindPopup(`
         <p>TOWN: ${townTransacted}
         <span>Sold On: ${monthTransacted}</span></p>
-        <p>${address} }</p>
+        <p>${address}</p>
         <p>Lease Commencement Year: ${commencementYear}</p>
         <p>Remaining Years: ${remainingYears}</p>
         <p>Last Transacted Price: ${lastTransactedPrice}</p>

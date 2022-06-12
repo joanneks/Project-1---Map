@@ -23,10 +23,7 @@
     <div class="container-fluid px-0">
         <nav class="navbar navbar-expand-lg bg-light">
             <div class="container-fluid flex-wrap">
-                <brand class="me-4">EasySearch</brand>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                <brand class="me-4 badge fs-3 text-dark bg-warning">EasySearch</brand>
                 
                 <div class="collapse navbar-collapse" id="navbarToggler">
                 <!-- <a class="easy-search me-4" href="easySearch.html">EasySearch</a> -->
@@ -44,16 +41,20 @@
                 </div>                
                 <div class="d-flex align-items-center userInput">
                     <input class="form-control" type="search" id="searchPostalCode" placeholder="Postal Code" aria-label="Postal Code">
-                    <div class="input-group">
+                    <!-- <div class="input-group"> -->
                         <label class="input-group-text" for="searchRadius">Radius</label>
                         <select class="form-select" id="searchRadius">
                         <option value="1">1km</option>
                         <option value="2">2km</option>
                         <option value="3">3km</option>
                         </select>
-                    </div>
+                    <!-- </div> -->
                     <button class="btn btn-success" id="searchBtn" >Search</button>
                 </div>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
             </div>
         </nav>
     </div>
