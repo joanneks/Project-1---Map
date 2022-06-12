@@ -77,7 +77,7 @@ document.querySelector('#searchBtn').addEventListener('click',async function(){
         showTrainMarkers(stationName,stationNo,lat,lng,latBoundaryTop,latBoundaryBottom,lngBoundaryRight,lngBoundaryLeft);
     };
     
-    await searchLastTransacted();
+    await searchLastTransacted(latBoundaryTop,latBoundaryBottom,lngBoundaryRight,lngBoundaryLeft);
 })
 
 
