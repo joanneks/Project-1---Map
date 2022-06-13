@@ -61,20 +61,6 @@
         </nav>
         
         <div id=cont-1" class="container-fluid px-0">
-            <!-- <div class="accordion accordion-sm col-3 " id="legend2">
-                <div class="accordion-item">
-                <h2 class="accordion-header" id="legendHeading">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    Legend
-                    </button>
-                </h2>
-                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="legendHeading" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                    Legends images and descriptions.
-                    </div>
-                </div>
-                </div>
-            </div> -->
 
             <div class="dropdown col-2" id="legend">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="legendBtn" data-bs-toggle="dropdown" aria-expanded="false">
@@ -83,32 +69,66 @@
                 <ul class="dropdown-menu align-items-center" aria-labelledby="dropdownMenuButton1">
                     <li>
                         <a class="dropdown-item">
-                            <span><img src="images-folder/searchFlat.png" class="legendImage" id="imgSearchFlat"/></span>
+                            <span><img src="images-folder/searchFlat.png" id="imgSearchFlat"/></span>
                             Searched Flat
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item">
-                            <span><img src="images-folder/supermarket.png" class="legendImage" id="imgSupermarket"/></span>
+                            <span><img src="images-folder/supermarket.png" id="imgSupermarket"/></span>
                             Supermarkets
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item">
-                            <span><img src="images-folder/train.png" class="legendImage" id="imgTrain"/></span>
+                            <span><img src="images-folder/train.png" id="imgTrain"/></span>
                             MRT/LRT Trains
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item">
-                            <span><img src="images-folder/lastTransacted.png" class="legendImage" id="imgLastTransacted"/></span>
+                            <span><img src="images-folder/lastTransacted.png" id="imgLastTransacted"/></span>
                             Last Transacted Flat
                         </a>
                     </li>
                 </ul>
             </div>
             
+            <div class="accordion" id="visionMission">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button bg-info text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Our Vision and Mission
+                    </button>
+                  </h2>
+                  <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <article alt="Our Vision and Mission">
+                                <section>
+                                    <h2>Our Vision</h1>
+                                    <p>To be Singapore's number one tool in helping resale flat buyers with their purchase considerations</p>
+                                </section>
+                                <section>
+                                    <h2>Our Mission</h1>
+                                    <p>Providing relevant information, such as last transacted prices and amenities within a certain radius.
+                                        <br/>
+                                        <br/>Purpose is for resale flat buyers to:
+                                        <ol>
+                                            <li>Determine the price benchmarks that sellers might be expecting</li>
+                                            <li>Determine if the seller is selling above the average price for that area</li>
+                                            <li>Determine if the amenities/transport system nearby is what they desire</li>
+                                            <li>Come to a conclusion if the price is worth for the degree of convenience/inconvenience</li>
+                                        </ol>    
+                                    </p>
+                                </section>
+                        </article>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
             <div id="map"></div>
+
         </div>
 
 
