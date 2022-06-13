@@ -20,13 +20,12 @@
 </head>
 
 <body>
-    <div class="container-fluid px-0">
+
         <nav class="navbar navbar-expand-lg bg-light">
             <div class="container-fluid flex-wrap">
                 <brand class="me-4 badge fs-3 text-dark bg-warning">EasySearch</brand>
                 
                 <div class="collapse navbar-collapse" id="navbarToggler">
-                <!-- <a class="easy-search me-4" href="easySearch.html">EasySearch</a> -->
                     <ul class="navbar-nav mb-2 mb-lg-0">
                     <li class="nav-item me-4">
                         <a class="nav-link active" aria-current="page" href="easySearch.html">About Us</a>
@@ -39,33 +38,81 @@
                     </li>
                     </ul>
                 </div>                
-                <div class="d-flex align-items-center userInput">
+                <!-- User Input -->
+                <div class="d-flex flex-wrap align-items-center">
+                    <!-- Postal Search Text Box -->
                     <input class="form-control" type="search" id="searchPostalCode" placeholder="Postal Code" aria-label="Postal Code">
-                    <!-- <div class="input-group"> -->
-                        <label class="input-group-text" for="searchRadius">Radius</label>
-                        <select class="form-select" id="searchRadius">
-                        <option value="1">1km</option>
-                        <option value="2">2km</option>
-                        <option value="3">3km</option>
-                        </select>
-                    <!-- </div> -->
+                    <!-- Radius Dropdown Selection -->
+                    <label class="input-group-text" for="searchRadius">Radius</label>
+                    <select class="form-select" id="searchRadius">
+                    <option value="0.5">0.5km</option>
+                    <option value="1">1km</option>
+                    <option value="1.5">1.5km</option>
+                    <option value="2">2km</option>
+                    </select>
+                    <!-- Search Button -->
                     <button class="btn btn-success" id="searchBtn" >Search</button>
                 </div>
-
+                <!-- Toggler Button -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
             </div>
         </nav>
-    </div>
+        
+        <div id=cont-1" class="container-fluid px-0">
+            <!-- <div class="accordion accordion-sm col-3 " id="legend2">
+                <div class="accordion-item">
+                <h2 class="accordion-header" id="legendHeading">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Legend
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="legendHeading" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                    Legends images and descriptions.
+                    </div>
+                </div>
+                </div>
+            </div> -->
 
-    <!-- <div>
-        <input type="text" id="searchPostalCode"/>
-        <input type="text" id="searchRadius"/>
-        <input type="submit" id="searchBtn"/>
-    </div> -->
+            <div class="dropdown col-2" id="legend">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="legendBtn" data-bs-toggle="dropdown" aria-expanded="false">
+                  Legend
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li>
+                        <a class="dropdown-item">
+                            <span><img src="images-folder/searchFlat.png" class="legendImage"/></span>
+                            Searched Flat
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item">
+                            <span><img src="images-folder/lastTransacted.png" class="legendImage"/></span>
+                            Last Transacted Flat
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item">
+                            <span><img src="images-folder/train.png" class="legendImage"/></span>
+                            MRT/LRT Trains
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item">
+                            <span><img src="images-folder/supermarket.png" class="legendImage"/></span>
+                            Supermarkets
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div id="map"></div>
+        </div>
 
-    <div id="map" class="container-fluid"></div>
+
+
 
     <!-- Bootstrap Javascript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>

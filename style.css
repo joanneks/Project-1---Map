@@ -1,6 +1,34 @@
+#searchPostalCode{
+    width:auto;
+}
+
+#searchRadius{
+    width:auto;
+}
+
+#cont-1{
+    position:relative;
+    height:100vh;
+}
+
 #map{
     height:100vh;
 }
-.userInput{
-    
+/* #legend2{
+    position:absolute;
+    z-index:500;
+    margin-top:100px;
+} */
+#legend{
+    position:absolute;
+    z-index:500;
+    margin-top:12px;
+    margin-left:60px;
+}
+
+.legendImage{
+ height:auto;
+ width:38px;
+ margin-left:5px;
+ margin-right:15px;
 }
