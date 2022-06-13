@@ -27,8 +27,31 @@
 }
 
 .legendImage{
- height:auto;
- width:38px;
  margin-left:5px;
  margin-right:15px;
+}
+
+#imgSearchFlat{
+    height:auto;
+    width:42px;
+    margin-left:0px;
+    margin-right:13px;
+}
+#imgLastTransacted{
+    height:auto;
+    width:32px;
+    margin-left:7px;
+    margin-right:17px;
+}
+#imgTrain{
+    height:auto;
+    width:35px;
+    margin-left:5px;
+    margin-right:15px;
+}
+#imgSupermarket{
+    height:auto;
+    width:40px;
+    margin-left:2px;
+    margin-right:13px;
 }
