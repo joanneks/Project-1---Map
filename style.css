@@ -6,6 +6,10 @@
     width:auto;
 }
 
+#aboutUs{
+    cursor:pointer;
+}
+
 #cont-1{
     position:relative;
     height:100vh;
@@ -14,14 +18,10 @@
 #map{
     height:100vh;
 }
-#visionMission{
-    position:absolute;
-    z-index:500;
-    margin-top:100px;
-}
+
 #legend{
     position:absolute;
-    z-index:500;
+    z-index:600;
     margin-top:12px;
     margin-left:60px;
 }
@@ -33,18 +33,21 @@
     margin-left:0px;
     margin-right:13px;
 }
+
 #imgLastTransacted{
     height:auto;
     width:32px;
     margin-left:7px;
     margin-right:17px;
 }
+
 #imgTrain{
     height:auto;
     width:35px;
     margin-left:5px;
     margin-right:15px;
 }
+
 #imgSupermarket{
     height:auto;
     width:40px;
@@ -52,5 +55,22 @@
     margin-right:13px;
 }
 
+#visionMission{
+    position:absolute;
+    z-index:500;
+    margin-left:12px;
+    margin-top:100px;
+    /* display: none; */
+}
 
+
+.missionList{
+    padding-left:15px;
+    padding-bottom:15px;
+}
+
+p{
+    margin-top:20px;
+    margin-bottom:25px;
+}
 

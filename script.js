@@ -1,6 +1,77 @@
 //create map global variable --> other functions require this variable
 let map = createMap();
 
+let aboutUs = document.querySelector('#aboutUs');
+aboutUs.addEventListener('click',function(){
+    // alert('About US clicked');
+    let visionMission = document.querySelector('#visionMission');
+    visionMission.innerHTML = `
+            <div class="accordion-item">
+            <div>
+            <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button bg-info text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Our Vision and Mission</button><button type="button" class="btn btn-danger" id="closeBtn" style="width:65px;" aria-label="Close">X</button>
+            </h2>
+            
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div class="accordion-body" id="visionMissionScroll" style="max-height:400px;width:auto;overflow-y:auto;">
+                        <article alt="Our Vision and Mission">
+                                <section>
+                                    <h2>Our Vision</h2>
+                                    <p>To be Singapore's number one tool in helping resale flat buyers with their purchase considerations</p>
+                                </section>
+                                <section>
+                                    <h2>Our Mission</h2>
+                                    <p>Providing relevant information, such as last transacted prices and amenities within a certain radius, to help resale flat buyers:</p>
+                                        <ol>
+                                            <li class="missionList">Determine the price benchmarks that sellers might be expecting</li>
+                                            <li class="missionList">Determine if the seller is selling above the average price for that area</li>
+                                            <li class="missionList">Determine if the amenities/transport system nearby is what they desire</li>
+                                            <li class="missionList">Come to a conclusion if the price is worth for the degree of convenience/inconvenience</li>
+                                        </ol>    
+                                    </p>
+                                </section>
+                        </article>
+                    </div>
+                </div>
+            </div>
+    `
+    let closeBtn = document.querySelector('#closeBtn');
+    closeBtn.addEventListener('click',function(){
+        visionMission.innerHTML = `
+        <div class="accordion-item" style="display:none">
+        <div>
+        <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button bg-info text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                Our Vision and Mission</button><button type="button" class="btn btn-danger" id="closeBtn" style="width:65px;" aria-label="Close">X</button>
+        </h2>
+        
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                <div class="accordion-body" id="visionMissionScroll" style="max-height:400px;width:auto;overflow-y:auto;">
+                    <article alt="Our Vision and Mission">
+                            <section>
+                                <h2>Our Vision</h2>
+                                <p>To be Singapore's number one tool in helping resale flat buyers with their purchase considerations</p>
+                            </section>
+                            <section>
+                                <h2>Our Mission</h2>
+                                <p>Providing relevant information, such as last transacted prices and amenities within a certain radius, to help resale flat buyers:</p>
+                                    <ol>
+                                        <li class="missionList">Determine the price benchmarks that sellers might be expecting</li>
+                                        <li class="missionList">Determine if the seller is selling above the average price for that area</li>
+                                        <li class="missionList">Determine if the amenities/transport system nearby is what they desire</li>
+                                        <li class="missionList">Come to a conclusion if the price is worth for the degree of convenience/inconvenience</li>
+                                    </ol>    
+                                </p>
+                            </section>
+                    </article>
+                </div>
+            </div>
+        </div>
+`        
+    })
+
+})
 
 document.querySelector('#searchBtn').addEventListener('click',async function(){
     //retrieve User input:postal code and radius
@@ -90,4 +161,5 @@ let overlays = {
     'Supermarkets':supermarketLayer,
     'Trains':trainLayer
 }
+
 L.control.layers(baseLayers,overlays).addTo(map);

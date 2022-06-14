@@ -28,13 +28,13 @@
                 <div class="collapse navbar-collapse" id="navbarToggler">
                     <ul class="navbar-nav mb-2 mb-lg-0">
                     <li class="nav-item me-4">
-                        <a class="nav-link active" aria-current="page" href="easySearch.html">About Us</a>
+                        <button class="btn" id="aboutUs" >About Us</button>
                     </li>                        
                     <li class="nav-item me-4">
-                        <a class="nav-link active" aria-current="page" href="index.html">Map Search</a>
+                        <button class="btn" aria-current="page" href="index.html">Map Search</button>
                     </li>
                     <li class="nav-item me-4">
-                        <a class="nav-link" href="#">Link</a>
+                        <button class="btn" >Link</button>
                     </li>
                     </ul>
                 </div>                
@@ -60,7 +60,7 @@
             </div>
         </nav>
         
-        <div id=cont-1" class="container-fluid px-0">
+        <div id="cont-1" class="container-fluid px-0">
 
             <div class="dropdown col-2" id="legend">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="legendBtn" data-bs-toggle="dropdown" aria-expanded="false">
@@ -95,36 +95,34 @@
             </div>
             
             <div class="accordion" id="visionMission">
-                <div class="accordion-item">
+                <!-- <div class="accordion-item">
                   <h2 class="accordion-header" id="headingOne">
                     <button class="accordion-button bg-info text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                         Our Vision and Mission
                     </button>
                   </h2>
-                  <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                        <article alt="Our Vision and Mission">
-                                <section>
-                                    <h2>Our Vision</h1>
-                                    <p>To be Singapore's number one tool in helping resale flat buyers with their purchase considerations</p>
-                                </section>
-                                <section>
-                                    <h2>Our Mission</h1>
-                                    <p>Providing relevant information, such as last transacted prices and amenities within a certain radius.
-                                        <br/>
-                                        <br/>Purpose is for resale flat buyers to:
-                                        <ol>
-                                            <li>Determine the price benchmarks that sellers might be expecting</li>
-                                            <li>Determine if the seller is selling above the average price for that area</li>
-                                            <li>Determine if the amenities/transport system nearby is what they desire</li>
-                                            <li>Come to a conclusion if the price is worth for the degree of convenience/inconvenience</li>
-                                        </ol>    
-                                    </p>
-                                </section>
-                        </article>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                        <div class="accordion-body" id="visionMissionScroll">
+                            <article alt="Our Vision and Mission">
+                                    <section>
+                                        <h2>Our Vision</h2>
+                                        <p>To be Singapore's number one tool in helping resale flat buyers with their purchase considerations</p>
+                                    </section>
+                                    <section>
+                                        <h2>Our Mission</h2>
+                                        <p>Providing relevant information, such as last transacted prices and amenities within a certain radius, to help resale flat buyers:</p>
+                                            <ol>
+                                                <li class="missionList">Determine the price benchmarks that sellers might be expecting</li>
+                                                <li class="missionList">Determine if the seller is selling above the average price for that area</li>
+                                                <li class="missionList">Determine if the amenities/transport system nearby is what they desire</li>
+                                                <li class="missionList">Come to a conclusion if the price is worth for the degree of convenience/inconvenience</li>
+                                            </ol>    
+                                        </p>
+                                    </section>
+                            </article>
+                        </div>
                     </div>
-                  </div>
-                </div>
+                </div> -->
             </div>
 
             <div id="map"></div>

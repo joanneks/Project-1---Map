@@ -10,7 +10,7 @@ function createMap() {
         id: 'mapbox/streets-v11',
         tileSize: 512,
         zoomOffset: -1,
-        accessToken: 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw' //demo access token
+        accessToken: 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw'
     }).addTo(map);
     return map;
 };
