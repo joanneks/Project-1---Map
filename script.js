@@ -1,6 +1,7 @@
 //create map global variable --> other functions require this variable
 let map = createMap();
 
+
 let aboutUs = document.querySelector('#aboutUs');
 aboutUs.addEventListener('click',function(){
     // alert('About US clicked');
@@ -149,8 +150,63 @@ document.querySelector('#searchBtn').addEventListener('click',async function(){
     };
     
     await searchLastTransacted(latBoundaryTop,latBoundaryBottom,lngBoundaryRight,lngBoundaryLeft);
+
+
+    // async function searchSchools(x,y){
+    //     const BASE_API_URL = "https://api.foursquare.com/v3/places/search";
+    //     const API_KEY = "fsq3zLslypYNcMYca6vWG1Xe6B3Ku195248+OERXSg+36HY=";
+    //     let response = await axios.get(BASE_API_URL,{
+    //         'params': {
+    //             'll': x + "," + y,
+    //             'categories': 12058,
+    //             'limit':50
+    //         },
+    //         'headers':{
+    //             'Accept':'application/json',
+    //             'Authorization': API_KEY
+    //         }
+    //     });
+    //     let schools = response.data.results;
+    //     console.log(schools);
+    //     // return shoppingMall;
+    //     for (each of schools){
+    //         let schoolLat = each.geocodes.main.latitude;
+    //         let schoolLng = each.geocodes.main.longitude;
+    //         let schoolName = each.name;
+    //         let schoolAddress = each.location.formatted_address
+
+    //         function schoolMarker() {
+    //             //set marker icon
+    //             let schoolIcon = L.icon({
+    //             iconUrl: "images-folder/school.png",
+    //             iconSize: [40,40]
+    //             });
+            
+    //             // create marker and add to map
+    //             let schoolMarker = L.marker([schoolLat, schoolLng], { icon: schoolIcon });
+    //             schoolMarker.addTo(primarySchoolLayer);
+    //             schoolMarker.bindPopup(`
+    //             <p>${schoolName}</p>
+    //             <p>${schoolAddress}</p>
+    //             `)
+    //         }
+    //         schoolMarker()
+    //         console.log(schoolLat,schoolLng,schoolName,schoolAddress);
+    //     }
+    // };
+
+    // searchSchools(1.3521,103.8646);
+
+
 })
 
+
+
+let primarySchoolLayer = L.layerGroup();
+let secondarySchoolLayer = L.layerGroup();
+let nurseryLayer = L.layerGroup();
+let preschoolLayer = L.layerGroup();
+let foodLayer = L.layerGroup();
 
 //Create toggle for layers
 let baseLayers = {
@@ -159,7 +215,107 @@ let baseLayers = {
 let overlays = {
     'Resale Flats Last Transacted':lastTransactedLayer,
     'Supermarkets':supermarketLayer,
-    'Trains':trainLayer
+    'Trains':trainLayer,
+    'Nurseries':nurseryLayer,
+    'Preschools':preschoolLayer,
+    'Primary Schools':primarySchoolLayer,
+    'Secondary Schools':secondarySchoolLayer,
+    'Food and Beverage':foodLayer
 }
 
 L.control.layers(baseLayers,overlays).addTo(map);
+
+
+async function searchSchools(lat,lng,categories,schoolLayer,iconUrl){
+    const BASE_API_URL = "https://api.foursquare.com/v3/places/search";
+    const API_KEY = "fsq3zLslypYNcMYca6vWG1Xe6B3Ku195248+OERXSg+36HY=";
+    let response = await axios.get(BASE_API_URL,{
+        'params': {
+            'll': lat + "," + lng,
+            'categories': categories,
+            'limit':50
+        },
+        'headers':{
+            'Accept':'application/json',
+            'Authorization': API_KEY
+        }
+    });
+    let schools = response.data.results;
+    console.log(schools);
+    // return shoppingMall;
+    for (each of schools){
+        let schoolLat = each.geocodes.main.latitude;
+        let schoolLng = each.geocodes.main.longitude;
+        let schoolName = each.name;
+        let schoolAddress = each.location.formatted_address
+
+        function schoolMarker() {
+            //set marker icon
+            let schoolIcon = L.icon({
+            iconUrl: iconUrl,
+            iconSize: [40,40]
+            });
+        
+            // create marker and add to map
+            let schoolMarker = L.marker([schoolLat, schoolLng], { icon: schoolIcon });
+            schoolMarker.addTo(schoolLayer);
+            schoolMarker.bindPopup(`
+            <p><h5>${schoolName}</h5></p>
+            <p>Address: ${schoolAddress}</p>
+            `)
+        }
+        schoolMarker()
+        console.log(schoolLat,schoolLng,schoolName,schoolAddress);
+    }
+};
+
+searchSchools(1.3521,103.8646,12059,secondarySchoolLayer,"images-folder/secondarySchool.png")
+searchSchools(1.3521,103.8646,12058,primarySchoolLayer,"images-folder/primarySchool.png")
+searchSchools(1.3521,103.8646,12055,nurseryLayer,"images-folder/nursery.png")
+searchSchools(1.3521,103.8646,12056,preschoolLayer,"images-folder/preschool.png")
+searchSchools(1.3521,103.8646,13000,foodLayer,"images-folder/food.png")
+
+// async function searchPrimarySchools(lat,lng){
+//     const BASE_API_URL = "https://api.foursquare.com/v3/places/search";
+//     const API_KEY = "fsq3zLslypYNcMYca6vWG1Xe6B3Ku195248+OERXSg+36HY=";
+//     let response = await axios.get(BASE_API_URL,{
+//         'params': {
+//             'll': lat + "," + lng,
+//             'categories': 12058,
+//             'limit':50
+//         },
+//         'headers':{
+//             'Accept':'application/json',
+//             'Authorization': API_KEY
+//         }
+//     });
+//     let schools = response.data.results;
+//     console.log(schools);
+//     // return shoppingMall;
+//     for (each of schools){
+//         let schoolLat = each.geocodes.main.latitude;
+//         let schoolLng = each.geocodes.main.longitude;
+//         let schoolName = each.name;
+//         let schoolAddress = each.location.formatted_address
+
+//         function schoolMarker() {
+//             //set marker icon
+//             let schoolIcon = L.icon({
+//             iconUrl: "images-folder/primarySchool.png",
+//             iconSize: [40,40]
+//             });
+        
+//             // create marker and add to map
+//             let schoolMarker = L.marker([schoolLat, schoolLng], { icon: schoolIcon });
+//             schoolMarker.addTo(primarySchoolLayer);
+//             schoolMarker.bindPopup(`
+//             <p><h5>${schoolName}</h5></p>
+//             <p>Address: ${schoolAddress}</p>
+//             `)
+//         }
+//         schoolMarker()
+//         console.log(schoolLat,schoolLng,schoolName,schoolAddress);
+//     }
+// };
+
+// searchPrimarySchools(1.3521,103.8646);
