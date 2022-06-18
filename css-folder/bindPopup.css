@@ -1,0 +1,19 @@
+.trainPopupHeader, .supermarketPopupHeader{
+    font-family: 'Urbanist', sans-serif;
+    font-size:large;
+    max-width:230px;
+}
+
+.trainPopup, .supermarketPopup{
+    font-family: 'Urbanist', sans-serif;
+    font-size:medium;
+    max-width:230px;
+    /* text-align: justify; */
+}
+
+.searchFlatPopup{
+    font-family: 'Urbanist', sans-serif;
+    font-size:large;
+    max-width:230px;
+    text-align: justify;
+}

@@ -15,11 +15,21 @@
     <!-- Leaflet Clustering CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css" />
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Malayalam&family=Urbanist&display=swap" rel="stylesheet">
+    
+    <!-- Bindpopups -->
+    <link href="css-folder/bindPopup.css" rel="stylesheet" type="text/css" />
+
     <!-- Own CSS -->
     <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
+
     <div class="d-flex flex-wrap align-items-center style="background-color:pink">
         <!-- Badge -->
         <div class="p-2">
@@ -54,6 +64,7 @@
             <option value="2">2km</option>
             </select>
         </div>
+
 
         <div id="break4"></div>
 
@@ -113,8 +124,20 @@
                 </li>
                 <li>
                     <a class="dropdown-item">
-                        <span><img src="images-folder/primarySchool.png" id="imgPimarySchool"class="legendImgs"/></span>
+                        <span><img src="images-folder/primarySchool.png" id="imgPrimarySchool"class="legendImgs"/></span>
                         Primary School
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item">
+                        <span><img src="images-folder/secondarySchool.png" id="imgSecondarySchool"class="legendImgs"/></span>
+                        Secondary School
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item">
+                        <span><img src="images-folder/food.png" id="imgfood"class="legendImgs"/></span>
+                        Food and Beverages
                     </a>
                 </li>
             </ul>

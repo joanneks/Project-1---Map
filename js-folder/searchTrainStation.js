@@ -57,8 +57,8 @@ function showTrainMarkers (stationName,stationNo,lat,lng,latBoundaryTop,latBound
       let trainMarker = L.marker([lat, lng], { icon: trainIcon });
       trainMarker.addTo(trainLayer);
       trainMarker.bindPopup(`
-      <p>${stationName}</p>
-      <p>Station No: ${stationNo}</p>
+      <p class="trainPopupHeader">${stationName}</p>
+      <p class="trainPopup">Station No: ${stationNo}</p>
       `);
   };
 };

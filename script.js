@@ -1,7 +1,7 @@
 //create map global variable --> other functions require this variable
 let map = createMap();
 
-
+//About Us Popup
 let aboutUs = document.querySelector('#aboutUs');
 aboutUs.addEventListener('click',function(){
     // alert('About US clicked');
@@ -90,7 +90,6 @@ document.querySelector('#searchBtn').addEventListener('click',async function(){
         
     let searchLat = parseFloat(postalSearch.data.results[0].LATITUDE);
     let searchLng = parseFloat(postalSearch.data.results[0].LONGITUDE);
-    // let searchLatLng = [searchLat,searchLng];
     let searchAddress = capitaliseFirstLetter(postalSearch.data.results[0].ADDRESS.toLowerCase());
     console.log(postalSearch.data.results);
 
@@ -113,6 +112,7 @@ document.querySelector('#searchBtn').addEventListener('click',async function(){
     };
     // add circle marker to display to user for reference
     addMarkerCircle(searchLat, searchLng, radius);
+
 
     //set Boundary to display other markers
     let kmToDegreeConverter = 1/111

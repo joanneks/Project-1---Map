@@ -56,19 +56,39 @@ async function searchLastTransacted(latBoundaryTop,latBoundaryBottom,lngBoundary
         lastTransactedMarker.bindPopup(`
         <div class="container-fluid">    
           <div class="row"> 
-            <div class="col">TOWN:}</div>
-            <div class="col align-self-end">Sold On:</div>
+            <div class="col lastTransactedPopup">TOWN:</div>
+            <div class="col align-self-end lastTransactedPopup">SOLD ON:</div>
           </div> 
           <div class="row"> 
-            <div class="col">${townTransacted}</div>
-            <div class="col align-self-end">${monthTransacted}</div>
-          </div> 
-            <p>${address}</p>
-            <p>Lease Commencement Year: ${commencementYear}</p>
-            <p>Remaining Years: ${remainingYears}</p>
-            <p>Last Transacted Price: ${lastTransactedPrice}</p>
-            <p>Flat Type (Area): ${flatType}, (${flatArea} sqm)</p>
-            <p>Flat Level Range: ${flatStoreyRange}</p>
+            <div class="col lastTransactedPopup">${townTransacted}</div>
+            <div class="col align-self-end lastTransactedPopup">${monthTransacted}</div>
+          </div class="lastTransactedPopup"> 
+            <table class="table table-hover">
+              <tr>
+                <td>Address:</td>
+                <td>${address}</td>
+              </tr>
+              <tr>
+                <td>Lease Commencement Year:</td>
+                <td>${commencementYear}</td>
+              </tr>
+              <tr>
+                <td>Remaining Years:</td>
+                <td>${remainingYears}</td>
+              </tr>
+              <tr>
+                <td>Last Transacted Price:</td>
+                <td>${lastTransactedPrice}</td>
+              </tr>
+              <tr>
+                <td>Flat Type (Area):</td>
+                <td>${flatType}, (${flatArea} sqm)</td>
+              </tr>
+              <tr>
+                <td>Flat Level Range:</td>
+                <td>${flatStoreyRange}</td>
+              </tr>
+            </table>
         </div>
         `)
       };

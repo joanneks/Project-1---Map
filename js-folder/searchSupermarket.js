@@ -31,8 +31,8 @@ async function searchSupermarkets(latBoundaryTop,latBoundaryBottom,lngBoundaryRi
       let supermarketMarker = L.marker(supermarketCoordinates, { icon: supermarketIcon });
       supermarketMarker.addTo(supermarketLayer);
       supermarketMarker.bindPopup(`
-        <p>${supermarketName}</p>
-        <p>Address: ${supermarketAddress}</p>
+        <p class="supermarketPopupHeader">${supermarketName}</p>
+        <p class="supermarketPopup">Address: ${supermarketAddress}</p>
         `);
     };
   };
