@@ -6,9 +6,6 @@
     width:auto;
 }
 
-#aboutUs{
-    cursor:pointer;
-}
 
 #cont-1{
     position:relative;
@@ -26,34 +23,27 @@
     margin-left:60px;
 }
 
+.legendImgs{
+    height:auto;
+    width:38px;
+    margin-left:5px;
+    margin-right:25px;    
+}
 
 #imgSearchFlat{
     height:auto;
-    width:42px;
+    width:45px;
     margin-left:0px;
-    margin-right:13px;
-}
-
-#imgLastTransacted{
-    height:auto;
-    width:32px;
-    margin-left:7px;
-    margin-right:17px;
-}
-
-#imgTrain{
-    height:auto;
-    width:35px;
-    margin-left:5px;
-    margin-right:15px;
+    margin-right:24px;
 }
 
 #imgSupermarket{
     height:auto;
-    width:40px;
+    width:43px;
     margin-left:2px;
-    margin-right:13px;
+    margin-right:24px;
 }
+
 
 #visionMission{
     position:absolute;
@@ -62,7 +52,6 @@
     margin-top:100px;
     /* display: none; */
 }
-
 
 .missionList{
     padding-left:15px;
@@ -74,3 +63,50 @@ p{
     margin-bottom:25px;
 }
 
+/* #div1{
+    display:flex;
+    align-items: center;
+    flex-wrap: wrap;
+} */
+
+#badge{
+    margin-left:3px;
+    margin-right:3px;
+}
+
+#clearResultsBtn{
+    vertical-align: center;
+}
+
+@media screen and (max-width: 991px) {
+    #break1 {width: 100%;}
+    #aboutUsDiv {margin-left:3px;margin-right:3px;}
+    /* #break2 {width: 100%;} */
+  }
+
+@media screen and (max-width: 795px) {
+#break1 {width: 100%;}
+#aboutUsDiv {margin-left:3px;margin-right:3px;}
+#break2 {width: 100%;}
+}
+
+@media screen and (max-width: 691px) {
+    #break1 {width: 100%;}
+    #aboutUsDiv {margin-left:3px;margin-right:3px;}
+    #break2 {width: 100%;}
+    #searchPostalCode {margin-left:3px;margin-right:3px;}
+    #searchBtn {margin-left:3px;margin-right:3px;}
+    #break4 {width: 100%;}
+}
+
+@media screen and (max-width: 461px) {
+    #break1 {width: 100%;}
+    #aboutUsDiv {margin-left:3px;margin-right:3px;}
+    #break2 {width: 100%;}
+    #searchPostalCode {margin-left:3px;margin-right:3px;}
+    #break3 {width: 100%;}
+    #searchBtn {margin-left:3px;margin-right:3px;}
+    #break4 {width: 100%;}
+    #searchRadiusLabel {margin-left:3px;margin-right:3px;}
+    #searchRadius {height:auto;}
+    }

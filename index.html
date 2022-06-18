@@ -20,102 +20,112 @@
 </head>
 
 <body>
-
-        <nav class="navbar navbar-expand-lg bg-light">
-            <div class="container-fluid flex-wrap">
-                <brand class="me-4 badge fs-3 text-dark bg-warning">EasySearch</brand>
-                
-                <div class="collapse navbar-collapse" id="navbarToggler">
-                    <ul class="navbar-nav mb-2 mb-lg-0">
-                    <li class="nav-item me-2">
-                        <button class="btn" id="aboutUs" >About Us</button>
-                    </li>
-                    <li class="nav-item me-2">
-                        <button class="btn">Last Transacted Prices</button>
-                    </li>   
-                    </ul>
-                </div>                
-                <!-- User Input -->
-                <div class="d-flex flex-wrap align-items-center">
-                    <!-- Postal Search Text Box -->
-                    <input class="form-control" type="search" id="searchPostalCode" placeholder="Postal Code" aria-label="Postal Code">
-                    <!-- Radius Dropdown Selection -->
-                    <label class="input-group-text" for="searchRadius">Radius</label>
-                    <select class="form-select" id="searchRadius">
-                    <option value="0.5">0.5km</option>
-                    <option value="1">1km</option>
-                    <option value="1.5">1.5km</option>
-                    <option value="2">2km</option>
-                    </select>
-                    <!-- Search Button -->
-                    <button class="btn btn-success" id="searchBtn" >Search</button>
-                    <a class="btn" id="clearResultsBtn" href="">Clear Results</a>
-                </div>
-                <!-- Toggler Button -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            </div>
-        </nav>
-        
-        <div id="cont-1" class="container-fluid px-0">
-
-            <div class="dropdown col-2" id="legend">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="legendBtn" data-bs-toggle="dropdown" aria-expanded="false">
-                  Legend
-                </button>
-                <ul class="dropdown-menu align-items-center" aria-labelledby="dropdownMenuButton1">
-                    <li>
-                        <a class="dropdown-item">
-                            <span><img src="images-folder/searchFlat.png" id="imgSearchFlat"/></span>
-                            Searched Flat
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item">
-                            <span><img src="images-folder/supermarket.png" id="imgSupermarket"/></span>
-                            Supermarkets
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item">
-                            <span><img src="images-folder/train.png" id="imgTrain"/></span>
-                            MRT/LRT Trains
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item">
-                            <span><img src="images-folder/lastTransacted.png" id="imgLastTransacted"/></span>
-                            Last Transacted Flat
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item">
-                            <span><img src="images-folder/nursery.png" id="imgNursery"/></span>
-                            Nursery
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item">
-                            <span><img src="images-folder/preschool.png" id="imgPreschool"/></span>
-                            Preschool
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item">
-                            <span><img src="images-folder/primarySchool.png" id="imgPimarySchool"/></span>
-                            Primary School
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            
-            <div class="accordion" id="visionMission">
-            </div>
-
-            <div id="map" class="container-fluid"></div>
-
+    <div class="d-flex flex-wrap align-items-center style="background-color:pink">
+        <!-- Badge -->
+        <div class="p-2">
+            <span class="badge fs-3 text-dark bg-warning" id="badge">EasySearch</span>
         </div>
+
+        <div id="break1"></div>
+
+        <!-- About Us Button -->
+        <div class="p-2 flex-grow-1" id="aboutUsDiv">
+            <button class="btn btn-outline-dark" id="aboutUs">About Us</button>
+        </div>
+
+        <div id="break2"></div>
+
+        <!-- Postal Search Text Box -->
+        <div class="p-2">
+            <input class="form-control" type="search" id="searchPostalCode" placeholder="Postal Code" aria-label="Postal Code">
+        </div>
+
+        <div id="break3"></div>
+
+        <!-- Radius Dropdown Selection -->
+        <div class="p-2">
+            <label class="input-group-text" for="searchRadius" id="searchRadiusLabel">Radius</label>
+        </div>
+        <div class="p-2">
+            <select class="form-select" id="searchRadius">
+            <option value="0.5">0.5km</option>
+            <option value="1">1km</option>
+            <option value="1.5">1.5km</option>
+            <option value="2">2km</option>
+            </select>
+        </div>
+
+        <div id="break4"></div>
+
+        <!-- Search Button and Clear Results Button -->
+        <div class="p-2">
+            <button class="btn btn-success" id="searchBtn" >Search</button>
+        </div>
+        <div class="p-2">
+            <a class="btn btn-outline-secondary" id="clearResultsBtn" href="">Clear Results</a>
+        </div>
+
+    </div>
+
+    <div id="cont-1" class="container-fluid px-0">
+
+        <!-- Legend Dropdown -->
+        <div class="dropdown col-2" id="legend">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="legendBtn" data-bs-toggle="dropdown" aria-expanded="false">
+                Legend
+            </button>
+            <ul class="dropdown-menu align-items-center" aria-labelledby="dropdownMenuButton1">
+                <li>
+                    <a class="dropdown-item">
+                        <span><img src="images-folder/searchFlat.png" id="imgSearchFlat" class="legendImgs"/></span>
+                        Searched Flat
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item">
+                        <span><img src="images-folder/supermarket.png" id="imgSupermarket" class="legendImgs"/></span>
+                        Supermarkets
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item">
+                        <span><img src="images-folder/train.png" id="imgTrain" class="legendImgs"/></span>
+                        MRT/LRT Trains
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item">
+                        <span><img src="images-folder/lastTransacted.png" id="imgLastTransacted" class="legendImgs"/></span>
+                        Last Transacted Flat
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item">
+                        <span><img src="images-folder/nursery.png" id="imgNursery" class="legendImgs"/></span>
+                        Nursery
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item">
+                        <span><img src="images-folder/preschool.png" id="imgPreschool" class="legendImgs"/></span>
+                        Preschool
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item">
+                        <span><img src="images-folder/primarySchool.png" id="imgPimarySchool"class="legendImgs"/></span>
+                        Primary School
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- About Us Button - Mission Vision Popup -->
+        <div class="accordion" id="visionMission"></div>
+
+        <div id="map" class="container-fluid"></div>
+
+    </div>
 
 
 
