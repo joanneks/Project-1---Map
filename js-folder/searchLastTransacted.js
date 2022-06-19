@@ -24,7 +24,7 @@ let radioBtn3RoomValue = radioBtn3Room.value;
 let radioBtn4RoomValue = radioBtn4Room.value;
 let radioBtn5RoomValue = radioBtn5Room.value;
 
-let resetBtn = document.querySelector('#resetBtn');
+
 
 async function searchFlatTypeResults(radioBtn,radioBtnValue){
   radioBtn.addEventListener('click',async function(){
@@ -32,13 +32,6 @@ async function searchFlatTypeResults(radioBtn,radioBtnValue){
     let searchLng = 103.8646;
     resalePriceInfo = await searchResalePrice ();
     // console.log(resalePriceInfo);
-    
-
-    resetBtn.addEventListener('click',function(){
-      let resultsListParentDiv = document.querySelectorAll('#resultsListParentDiv');
-      resultsListParentDiv.innerHTML = ``;
-    })
-    
 
     try{
     // for (let i = 256650 ; i <= resalePriceInfo.length;i++){
@@ -96,6 +89,11 @@ async function searchFlatTypeResults(radioBtn,radioBtnValue){
       };
     };    
     }catch(error){};
+    let resetBtn = document.querySelector('#resetBtn');
+    resetBtn.addEventListener('click',function(){
+    let resultsListParentDiv = document.querySelector('#resultsListParentDiv');
+    resultsListParentDiv.innerHTML = ``;
+})
   });
 };
 
