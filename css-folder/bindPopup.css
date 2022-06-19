@@ -1,12 +1,12 @@
 .trainPopupHeader, .supermarketPopupHeader{
     font-family: 'Urbanist', sans-serif;
-    font-size:large;
+    font-size:medium;
     max-width:230px;
 }
 
 .trainPopup, .supermarketPopup{
     font-family: 'Urbanist', sans-serif;
-    font-size:medium;
+    font-size:small;
     max-width:230px;
     /* text-align: justify; */
 }
@@ -17,3 +17,20 @@
     max-width:230px;
     text-align: justify;
 }
+
+#lastTransactedTable{
+    font-family: 'Urbanist', sans-serif;
+    font-size:small;
+}
+
+#lastTransactedAddress{
+    font-family: 'Urbanist', sans-serif;
+    font-size:medium;
+    padding:8px;
+    margin: 0px;
+    text-align: justify;
+}
+
+/* .table{
+    padding:0.5rem 0.25rem;
+} */

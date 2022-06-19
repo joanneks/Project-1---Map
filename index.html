@@ -25,7 +25,7 @@
     <link href="css-folder/bindPopup.css" rel="stylesheet" type="text/css" />
 
     <!-- Own CSS -->
-    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="css-folder/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -144,13 +144,49 @@
         </div>
         
         <!-- About Us Button - Mission Vision Popup -->
-        <div class="accordion" id="visionMission"></div>
+        <div class="accordion" id="visionMission">
+        </div>
 
         <div id="map" class="container-fluid"></div>
 
     </div>
 
+    <div class="container-fluid" style="background-color:#f8f9fa;width:100%;height:350px;">
+        <label>Display a list of the last transacted flats by flat type:</label>
+        <div style="display:flex;flex-wrap:wrap;align-items:center;">
+            <div class="form-check radioFlatType">
+                <input class="form-check-input" type="radio" name="radioFlatType" id="room1" value="1 ROOM">
+                <label class="form-check-label text-center" for="1room">1 Room</label>
+            </div>
+            <div class="form-check radioFlatType">
+                <input class="form-check-input" type="radio" name="radioFlatType" id="room2" value="2 ROOM">
+                <label class="form-check-label" for="2room">2 Room</label>
+            </div>
+            <div class="form-check radioFlatType">
+                <input class="form-check-input" type="radio" name="radioFlatType" id="room3" value="3 ROOM">
+                <label class="form-check-label" for="3room">3 Room</label>
+            </div>
+            <div class="form-check radioFlatType">
+                <input class="form-check-input" type="radio" name="radioFlatType" id="room4" value="4 ROOM">
+                <label class="form-check-label" for="4room">4 Room</label>
+            </div>
+            <div class="form-check radioFlatType">
+                <input class="form-check-input" type="radio" name="radioFlatType" id="room5" value="5 ROOM">
+                <label class="form-check-label" for="5room">5 Room</label>
+            </div>
+            <div class="form-check radioFlatType">
+                <input class="form-check-input" type="radio" name="radioFlatType" id="executive" value="EXECUTIVE">
+                <label class="form-check-label" for="executive">Executive</label>
+            </div>
+            <div class="radioFlatType">
+            <button class="btn btn-outline-secondary" id="resetBtn">Reset Results</button>
+            </div>
+        </div>
+        <div class="container-fluid" id="resultsListParentDiv" style="background-color:pink;width:100%;height:330px;display:flex;flex-wrap:wrap;justify-content: space-between;overflow-y:auto;">
 
+        </div>
+
+    </div>
 
 
     <!-- Bootstrap Javascript -->
@@ -177,6 +213,9 @@
     <script src="js-folder/searchSupermarket.js"></script>
     <!-- Search Train Station Javascript -->
     <script src="js-folder/searchTrainStation.js"></script>
+    <!-- Search Nearby Javascript -->
+    <script src="js-folder/searchNearby.js"></script>
+
     <!-- Own Javascript -->
     <script src="script.js"></script>
 </body>
