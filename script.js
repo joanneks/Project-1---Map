@@ -160,10 +160,21 @@ document.querySelector('#searchBtn').addEventListener('click',async function(){
     await searchLastTransacted(latBoundaryTop,latBoundaryBottom,lngBoundaryRight,lngBoundaryLeft);
     } catch(err){}
 
-
-
 })
 
+
+let clearResultsBtn = document.querySelector('#clearResultsBtn');
+clearResultsBtn.addEventListener('click',function(){
+    lastTransactedLayer.clearLayers();
+    supermarketLayer.clearLayers();
+    trainLayer.clearLayers();
+    nurseryLayer.clearLayers();
+    preschoolLayer.clearLayers();
+    primarySchoolLayer.clearLayers();
+    secondarySchoolLayer.clearLayers();
+    foodLayer.clearLayers();
+    searchFlatLayer.clearLayers();
+});
 
 
 let primarySchoolLayer = L.layerGroup();

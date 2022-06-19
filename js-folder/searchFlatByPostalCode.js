@@ -20,7 +20,7 @@ function addMarker(lat, lng, address, iconUrl, iconSizeX, iconSizeY) {
 function addMarkerCircle(lat, lng, radius){
   //create circle marker for radius
   let searchMarkerCircle = L.circle([lat, lng], { radius: radius });
-  searchMarkerCircle.addTo(map);
+  searchMarkerCircle.addTo(searchFlatLayer);
 };
 
 async function searchFlatbyPostalCode(searchVal,searchRadius){

@@ -72,12 +72,6 @@ p{
     margin-bottom:25px;
 }
 
-/* #div1{
-    display:flex;
-    align-items: center;
-    flex-wrap: wrap;
-} */
-
 #badge{
     margin-left:3px;
     margin-right:3px;
@@ -92,9 +86,10 @@ p{
     margin-right:25px;
 }
 
-/* #resetBtn{
-    margin-top:10px;
-} */
+.radioFlatTypeLabel{
+    font-family: 'Anek Malayalam', sans-serif;
+    font-size:medium;
+}
 
 @media screen and (max-width: 991px) {
     #break1 {width: 100%;}
@@ -106,6 +101,7 @@ p{
 #break1 {width: 100%;}
 #aboutUsDiv {margin-left:3px;margin-right:3px;}
 #break2 {width: 100%;}
+#searchPostalCode {margin-left:3px;margin-right:3px;}
 }
 
 @media screen and (max-width: 691px) {

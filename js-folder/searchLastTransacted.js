@@ -15,26 +15,16 @@ async function searchResalePrice (){
   return resalePriceInfo;
 }
 
-let radioBtn1Room = document.querySelector('#room1');
 let radioBtn2Room = document.querySelector('#room2');
 let radioBtn3Room = document.querySelector('#room3');
 let radioBtn4Room = document.querySelector('#room4');
 let radioBtn5Room = document.querySelector('#room5');
-let radioBtnExecutive = document.querySelector('#executive');
-let radioBtn1RoomValue = radioBtn1Room.value;
 let radioBtn2RoomValue = radioBtn2Room.value;
 let radioBtn3RoomValue = radioBtn3Room.value;
 let radioBtn4RoomValue = radioBtn4Room.value;
 let radioBtn5RoomValue = radioBtn5Room.value;
-let radioBtnExecutiveValue = radioBtnExecutive.value;
 
 let resetBtn = document.querySelector('#resetBtn');
-
-resetBtn.addEventListener('click',function(){
-  alert('clicked');
-  let resultsList = document.querySelectorAll('resultsList');
-  resultsList.innerHTML = ``;
-})
 
 async function searchFlatTypeResults(radioBtn,radioBtnValue){
   radioBtn.addEventListener('click',async function(){
@@ -43,69 +33,76 @@ async function searchFlatTypeResults(radioBtn,radioBtnValue){
     resalePriceInfo = await searchResalePrice ();
     // console.log(resalePriceInfo);
     
+
+    resetBtn.addEventListener('click',function(){
+      let resultsListParentDiv = document.querySelectorAll('#resultsListParentDiv');
+      resultsListParentDiv.innerHTML = ``;
+    })
+    
+
     try{
     // for (let i = 256650 ; i <= resalePriceInfo.length;i++){
-    for (let i = 256650 ; i <= 256680;i++){
-        let blkStreetName = resalePriceInfo[i].block + " " + resalePriceInfo[i].street_name;
-        let monthTransacted = resalePriceInfo[i].month;
-        let townTransacted = resalePriceInfo[i].town;
-        let commencementYear = resalePriceInfo[i].lease_commence_date;
-        let remainingYears = resalePriceInfo[i].remaining_lease;
-        let lastTransactedPrice = resalePriceInfo[i].resale_price;
-        let flatArea = resalePriceInfo[i].floor_area_sqm;
-        let flatStoreyRange = resalePriceInfo[i].storey_range.toLowerCase();
-        
-        let flatType = resalePriceInfo[i].flat_type;
-        // console.log(flatType)
-        if(flatType==radioBtnValue){
-        let resultsList = document.createElement("div");
-            resultsList.innerHTML = `
-            <div class="container-fluid p-1" class="resultsList">
-                <p id="lastTransactedAddress">${blkStreetName}</p>    
-                <table class="table table-hover table-striped" id="lastTransactedTable">
-                <tr>
-                    <td>Town:</td>
-                    <td>${townTransacted}</td>
-                </tr>
-                <tr>
-                    <td>Sold on:</td>
-                    <td>${monthTransacted}</td>
-                </tr>
-                <tr>
-                    <td>Lease Commencement:</td>
-                    <td>${commencementYear}</td>
-                </tr>
-                <tr>
-                    <td>Remaining Years:</td>
-                    <td>${remainingYears}</td>
-                </tr>
-                <tr>
-                    <td>Last Transacted Price:</td>
-                    <td>${lastTransactedPrice}</td>
-                </tr>
-                <tr>
-                    <td>Flat Type (Area):</td>
-                    <td>${flatType}, (${flatArea} sqm)</td>
-                </tr>
-                <tr>
-                    <td>Flat Level Range:</td>
-                    <td>${flatStoreyRange}</td>
-                </tr>
-                </table>
-            </div>
-            `;
-            document.querySelector("#resultsListParentDiv").appendChild(resultsList);
-        };
+    for (let i = 256650 ; i <= resalePriceInfo.length;i++){
+      let blkStreetName = resalePriceInfo[i].block + " " + resalePriceInfo[i].street_name;
+      let monthTransacted = resalePriceInfo[i].month;
+      let townTransacted = resalePriceInfo[i].town;
+      let commencementYear = resalePriceInfo[i].lease_commence_date;
+      let remainingYears = resalePriceInfo[i].remaining_lease;
+      let lastTransactedPrice = resalePriceInfo[i].resale_price;
+      let flatArea = resalePriceInfo[i].floor_area_sqm;
+      let flatStoreyRange = resalePriceInfo[i].storey_range.toLowerCase();
+      
+      let flatType = resalePriceInfo[i].flat_type;
+      let resultsList = document.createElement("div");
+
+      if(flatType==radioBtnValue){
+        console.log(flatType);
+        resultsList.innerHTML = `
+          <div class="container-fluid p-1" class="resultsList">
+              <p id="lastTransactedAddress">${blkStreetName}</p>    
+              <table class="table table-hover table-striped" id="lastTransactedTable">
+              <tr>
+                  <td>Town:</td>
+                  <td>${townTransacted}</td>
+              </tr>
+              <tr>
+                  <td>Sold on:</td>
+                  <td>${monthTransacted}</td>
+              </tr>
+              <tr>
+                  <td>Lease Commencement:</td>
+                  <td>${commencementYear}</td>
+              </tr>
+              <tr>
+                  <td>Remaining Years:</td>
+                  <td>${remainingYears}</td>
+              </tr>
+              <tr>
+                  <td>Last Transacted Price:</td>
+                  <td>${lastTransactedPrice}</td>
+              </tr>
+              <tr>
+                  <td>Flat Type (Area):</td>
+                  <td>${flatType}, (${flatArea} sqm)</td>
+              </tr>
+              <tr>
+                  <td>Flat Level Range:</td>
+                  <td>${flatStoreyRange}</td>
+              </tr>
+              </table>
+          </div>
+        `;
+        document.querySelector("#resultsListParentDiv").appendChild(resultsList);
+      };
     };    
     }catch(error){};
-    });
+  });
 };
 
 searchFlatTypeResults(radioBtn2Room,radioBtn2RoomValue)
 searchFlatTypeResults(radioBtn3Room,radioBtn3RoomValue)
 searchFlatTypeResults(radioBtn4Room,radioBtn4RoomValue)
 searchFlatTypeResults(radioBtn5Room,radioBtn5RoomValue)
-searchFlatTypeResults(radioBtnExecutive,radioBtnExecutive)
 
   //   let flatArea = resalePriceInfo[i].floor_area_sqm;
   //   let flatStoreyRange = resalePriceInfo[i].storey_range.toLowerCase();
