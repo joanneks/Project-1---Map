@@ -1,10 +1,24 @@
 //create map global variable --> other functions require this variable
 let map = createMap();
 
-//About Us Popup
-let aboutUs = document.querySelector('#aboutUs');
-aboutUs.addEventListener('click',function(){
-    // alert('About US clicked');
+let collapsible = document.getElementsByClassName("collapsible");
+
+for (i = 0; i < collapsible.length; i++) {
+  collapsible[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    let content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+
+
+//faq Popup
+let faq = document.querySelector('#faq');
+faq.addEventListener('click',function(){
     let visionMission = document.querySelector('#visionMission');
     visionMission.innerHTML = `
             <div class="accordion-item">

@@ -7,15 +7,6 @@
 }
 
 
-#cont-1{
-    position:relative;
-    height:100vh;
-}
-
-#map{
-    height:100vh;
-    
-}
 
 #legend{
     position:absolute;
@@ -91,36 +82,92 @@ p{
     font-size:medium;
 }
 
-@media screen and (max-width: 991px) {
-    #break1 {width: 100%;}
-    #aboutUsDiv {margin-left:3px;margin-right:3px;}
-    /* #break2 {width: 100%;} */
-  }
+#cont-1{
+    position:relative;
+    height:90vh;
+}
 
-@media screen and (max-width: 795px) {
-#break1 {width: 100%;}
+#map{
+    height:78vh;
+}
+/* #radioFlatDiv{
+    height:15vh;
+} */
+
+@media screen and (max-width: 576px) {
+    #break4 {width: 100%;}
+    #break5 {width: 100%;}
+    #cont-1{position:relative;height:90vh;}
+    #map{height:72vh;}
+}
+
+@media screen and (max-width: 480px) {
+    #break3 {width: 100%;}
+    #break5 {width: 0%;}
+    #break6 {width: 100%;}
+    #cont-1{position:relative;height:90vh;}
+    #map{height:72vh;}
+}
+
+@media screen and (max-width: 430px) {
+    #break3 {width: 100%;}
+    #break5 {width: 0%;}
+    #break6 {width: 100%;}
+    #cont-1{position:relative;height:90vh;}
+    #map{height:70vh;}
+}
+
+
+@media screen and (max-width: 360px) {
+    #break3 {width: 100%;}
+    #break5 {width: 0%;}
+    #break6 {width: 100%;}
+    #cont-1{position:relative;height:90vh;}
+    #map{height:65vh;}
+}
+
+@media screen and (max-width: 320px) {
+    #break1 {width: 100%;}
+    #cont-1{position:relative;height:90vh;}
+    #map{height:60vh;}
+    .collapsible {margin-left:11px; margin-bottom:8px;margin-top:8px;}
+}
+/* @media screen and (max-width: 905px) {
 #aboutUsDiv {margin-left:3px;margin-right:3px;}
 #break2 {width: 100%;}
 #searchPostalCode {margin-left:3px;margin-right:3px;}
 }
 
-@media screen and (max-width: 691px) {
-    #break1 {width: 100%;}
-    #aboutUsDiv {margin-left:3px;margin-right:3px;}
-    #break2 {width: 100%;}
-    #searchPostalCode {margin-left:3px;margin-right:3px;}
-    #searchBtn {margin-left:3px;margin-right:3px;}
-    #break4 {width: 100%;}
-}
-
-@media screen and (max-width: 461px) {
-    #break1 {width: 100%;}
-    #aboutUsDiv {margin-left:3px;margin-right:3px;}
-    #break2 {width: 100%;}
+@media screen and (max-width: 441px) {
     #searchPostalCode {margin-left:3px;margin-right:3px;}
     #break3 {width: 100%;}
     #searchBtn {margin-left:3px;margin-right:3px;}
-    #break4 {width: 100%;}
-    #searchRadiusLabel {margin-left:3px;margin-right:3px;}
-    #searchRadius {height:auto;}
-    }
+}
+
+@media screen and (max-width: 425px) {
+    #searchPostalCode {margin-left:3px;margin-right:3px;}
+    #break3 {width: 100%;}
+    #searchBtn {margin-left:3px;margin-right:3px;}
+} */
+
+/* Style the button that is used to open and close the collapsible content */
+.collapsible {
+    color: #444;
+    cursor: pointer;
+    padding: 6px 12px
+    font-size: 15px;
+    margin-right:12px;
+    margin-left:12px;
+  }
+  
+  /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+  .active, .collapsible:hover {
+    background-color: #ccc;
+  }
+  
+  /* Style the collapsible content. Note: hidden by default */
+  .content {
+    padding: 3px;
+    display: none;
+    overflow: hidden;
+  }

@@ -30,155 +30,165 @@
 
 <body>
 
-    <div class="d-flex flex-wrap align-items-center style="background-color:pink">
+    <div class="d-flex flex-wrap align-items-center">
         <!-- Badge -->
         <div class="p-2">
             <span class="badge fs-3 text-dark bg-warning" id="badge">EasySearch</span>
         </div>
 
-        <div id="break1"></div>
 
         <!-- About Us Button -->
-        <div class="p-2 flex-grow-1" id="aboutUsDiv">
-            <button class="btn btn-outline-dark" id="aboutUs">About Us</button>
+        <div class="p-2 flex-grow-1" id="faqDiv">
+            <button class="btn btn-outline-dark" id="faq">FAQ</button>
         </div>
 
-        <div id="break2"></div>
+        <div id="break1"></div>
 
-        <!-- Postal Search Text Box -->
-        <div class="p-2">
-            <input class="form-control" type="search" id="searchPostalCode" placeholder="Postal Code" aria-label="Postal Code">
+        <button type="button" class="collapsible btn btn-outline-warning">Expand</button>
+        <div class="content">
+
+            <div class="d-flex flex-wrap align-items-center">
+
+                <!-- Postal Search Text Box -->
+                <div class="p-2">
+                    <input class="form-control" type="search" id="searchPostalCode" placeholder="Postal Code" aria-label="Postal Code">
+                </div>
+
+                <div id="break3"></div>
+
+                <!-- Radius Dropdown Selection -->
+                <div class="p-2">
+                    <label class="input-group-text" for="searchRadius" id="searchRadiusLabel">Radius</label>
+                </div>
+                <div class="p-2">
+                    <select class="form-select" id="searchRadius">
+                    <option value="0.5">0.5km</option>
+                    <option value="1">1km</option>
+                    <option value="1.5">1.5km</option>
+                    <option value="2">2km</option>
+                    </select>
+                </div>
+
+                <div id="break4"></div>
+
+                <!-- Search Button and Clear Results Button -->
+                <div class="p-2">
+                    <button class="btn btn-success" id="searchBtn" >Search</button>
+                </div>
+                <div class="p-2">
+                    <button class="btn btn-outline-secondary" id="clearResultsBtn" >Remove</button>
+                </div>
+            </div>
         </div>
 
-        <div id="break3"></div>
+        <div id="cont-1" class="container-fluid px-0">
 
-        <!-- Radius Dropdown Selection -->
-        <div class="p-2">
-            <label class="input-group-text" for="searchRadius" id="searchRadiusLabel">Radius</label>
-        </div>
-        <div class="p-2">
-            <select class="form-select" id="searchRadius">
-            <option value="0.5">0.5km</option>
-            <option value="1">1km</option>
-            <option value="1.5">1.5km</option>
-            <option value="2">2km</option>
-            </select>
-        </div>
+            <!-- Legend Dropdown -->
+            <div class="dropdown col-2" id="legend">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="legendBtn" data-bs-toggle="dropdown" aria-expanded="false">
+                    Legend
+                </button>
+                <ul class="dropdown-menu align-items-center" aria-labelledby="dropdownMenuButton1">
+                    <li>
+                        <a class="dropdown-item">
+                            <span><img src="images-folder/searchFlat.png" id="imgSearchFlat" class="legendImgs"/></span>
+                            Searched Flat
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item">
+                            <span><img src="images-folder/supermarket.png" id="imgSupermarket" class="legendImgs"/></span>
+                            Supermarkets
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item">
+                            <span><img src="images-folder/train.png" id="imgTrain" class="legendImgs"/></span>
+                            MRT/LRT Trains
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item">
+                            <span><img src="images-folder/lastTransacted.png" id="imgLastTransacted" class="legendImgs"/></span>
+                            Last Transacted Flat
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item">
+                            <span><img src="images-folder/nursery.png" id="imgNursery" class="legendImgs"/></span>
+                            Nursery
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item">
+                            <span><img src="images-folder/preschool.png" id="imgPreschool" class="legendImgs"/></span>
+                            Preschool
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item">
+                            <span><img src="images-folder/primarySchool.png" id="imgPrimarySchool"class="legendImgs"/></span>
+                            Primary School
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item">
+                            <span><img src="images-folder/secondarySchool.png" id="imgSecondarySchool"class="legendImgs"/></span>
+                            Secondary School
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item">
+                            <span><img src="images-folder/food.png" id="imgfood"class="legendImgs"/></span>
+                            Food and Beverages
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- About Us Button - Mission Vision Popup -->
+            <div class="accordion" id="visionMission">
+            </div>
 
+            <div id="map" class="container-fluid"></div>
 
-        <div id="break4"></div>
+            <div class="container-fluid" id="radioFlatDiv" style="background-color:#f8f9fa;">
+                <label style="margin-top:15px;font-family: 'Anek Malayalam', sans-serif;font-size:large;">Display a list of the last transacted flats by flat type:</label>
+                <div style="display:flex;flex-wrap:wrap;align-items:center;">
+                    <div class="form-check radioFlatType">
+                        <input class="form-check-input" type="radio" name="radioFlatType" id="room2" value="2 ROOM">
+                        <label class="form-check-label radioFlatTypeLabel" for="2room">2 Room</label>
+                    </div>
+                    <div class="form-check radioFlatType">
+                        <input class="form-check-input" type="radio" name="radioFlatType" id="room3" value="3 ROOM">
+                        <label class="form-check-label radioFlatTypeLabel" for="3room">3 Room</label>
+                    </div>
+                    <div class="form-check radioFlatType">
+                        <input class="form-check-input" type="radio" name="radioFlatType" id="room4" value="4 ROOM">
+                        <label class="form-check-label radioFlatTypeLabel" for="4room">4 Room</label>
+                    </div>
 
-        <!-- Search Button and Clear Results Button -->
-        <div class="p-2">
-            <button class="btn btn-success" id="searchBtn" >Search</button>
-        </div>
-        <div class="p-2">
-            <button class="btn btn-outline-secondary" id="clearResultsBtn" >Clear Results</button>
-        </div>
-
-    </div>
-
-    <div id="cont-1" class="container-fluid px-0">
-
-        <!-- Legend Dropdown -->
-        <div class="dropdown col-2" id="legend">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="legendBtn" data-bs-toggle="dropdown" aria-expanded="false">
-                Legend
-            </button>
-            <ul class="dropdown-menu align-items-center" aria-labelledby="dropdownMenuButton1">
-                <li>
-                    <a class="dropdown-item">
-                        <span><img src="images-folder/searchFlat.png" id="imgSearchFlat" class="legendImgs"/></span>
-                        Searched Flat
-                    </a>
-                </li>
-                <li>
-                    <a class="dropdown-item">
-                        <span><img src="images-folder/supermarket.png" id="imgSupermarket" class="legendImgs"/></span>
-                        Supermarkets
-                    </a>
-                </li>
-                <li>
-                    <a class="dropdown-item">
-                        <span><img src="images-folder/train.png" id="imgTrain" class="legendImgs"/></span>
-                        MRT/LRT Trains
-                    </a>
-                </li>
-                <li>
-                    <a class="dropdown-item">
-                        <span><img src="images-folder/lastTransacted.png" id="imgLastTransacted" class="legendImgs"/></span>
-                        Last Transacted Flat
-                    </a>
-                </li>
-                <li>
-                    <a class="dropdown-item">
-                        <span><img src="images-folder/nursery.png" id="imgNursery" class="legendImgs"/></span>
-                        Nursery
-                    </a>
-                </li>
-                <li>
-                    <a class="dropdown-item">
-                        <span><img src="images-folder/preschool.png" id="imgPreschool" class="legendImgs"/></span>
-                        Preschool
-                    </a>
-                </li>
-                <li>
-                    <a class="dropdown-item">
-                        <span><img src="images-folder/primarySchool.png" id="imgPrimarySchool"class="legendImgs"/></span>
-                        Primary School
-                    </a>
-                </li>
-                <li>
-                    <a class="dropdown-item">
-                        <span><img src="images-folder/secondarySchool.png" id="imgSecondarySchool"class="legendImgs"/></span>
-                        Secondary School
-                    </a>
-                </li>
-                <li>
-                    <a class="dropdown-item">
-                        <span><img src="images-folder/food.png" id="imgfood"class="legendImgs"/></span>
-                        Food and Beverages
-                    </a>
-                </li>
-            </ul>
-        </div>
+                    <div id="break6"></div>
+                    <div class="form-check radioFlatType">
+                        <input class="form-check-input" type="radio" name="radioFlatType" id="room5" value="5 ROOM">
+                        <label class="form-check-label radioFlatTypeLabel" for="5room">5 Room</label>
+                    </div>
+                    <div id="break5"></div>
+                    <div class="radioFlatType">
+                    <button class="btn btn-outline-secondary" id="resetBtn">Reset Results</button>
+                    </div>
+                </div>
+                <div class="container-fluid" id="resultsListParentDiv" style="background-color:lemonchiffon;width:100%;display:flex;flex-direction:row;flex-wrap:wrap;justify-content:space-between;overflow-y:auto;">
         
-        <!-- About Us Button - Mission Vision Popup -->
-        <div class="accordion" id="visionMission">
-        </div>
-
-        <div id="map" class="container-fluid"></div>
-
-    </div>
-
-    <div class="container-fluid" style="background-color:#f8f9fa;height:auto;">
-        <label style="margin-top:15px;font-family: 'Anek Malayalam', sans-serif;font-size:large;">Display a list of the last transacted flats by flat type:</label>
-        <div style="display:flex;flex-wrap:wrap;align-items:center;">
-            <div class="form-check radioFlatType">
-                <input class="form-check-input" type="radio" name="radioFlatType" id="room2" value="2 ROOM">
-                <label class="form-check-label radioFlatTypeLabel" for="2room">2 Room</label>
+                </div>
+        
             </div>
-            <div class="form-check radioFlatType">
-                <input class="form-check-input" type="radio" name="radioFlatType" id="room3" value="3 ROOM">
-                <label class="form-check-label radioFlatTypeLabel" for="3room">3 Room</label>
-            </div>
-            <div class="form-check radioFlatType">
-                <input class="form-check-input" type="radio" name="radioFlatType" id="room4" value="4 ROOM">
-                <label class="form-check-label radioFlatTypeLabel" for="4room">4 Room</label>
-            </div>
-            <div class="form-check radioFlatType">
-                <input class="form-check-input" type="radio" name="radioFlatType" id="room5" value="5 ROOM">
-                <label class="form-check-label radioFlatTypeLabel" for="5room">5 Room</label>
-            </div>
-            <div class="radioFlatType">
-            <button class="btn btn-outline-secondary" id="resetBtn">Reset Results</button>
-            </div>
-        </div>
-        <div class="container-fluid" id="resultsListParentDiv" style="background-color:lemonchiffon;height:auto;display:flex;flex-direction:row;flex-wrap:wrap;justify-content:space-between;overflow-y:auto;">
 
         </div>
 
     </div>
+
+
 
 
     <!-- Bootstrap Javascript -->

@@ -1,13 +1,12 @@
 let lastTransactedLayer = L.layerGroup();
 
-
 async function searchResalePrice (){
   const BASE_API_URL ="https://data.gov.sg/api/action/datastore_search";
     const resource_id = "f1765b54-a209-4718-8d38-a39237f502b3";
     let resalePriceData = await axios.get(BASE_API_URL,{
         'params': {
           'resource_id': resource_id,
-            'limit': 257650 
+            'limit': 124919 
         }
     });
 
@@ -24,18 +23,15 @@ let radioBtn3RoomValue = radioBtn3Room.value;
 let radioBtn4RoomValue = radioBtn4Room.value;
 let radioBtn5RoomValue = radioBtn5Room.value;
 
-
-
 async function searchFlatTypeResults(radioBtn,radioBtnValue){
   radioBtn.addEventListener('click',async function(){
-    let searchLat = 1.3521;
-    let searchLng = 103.8646;
+    // let searchLat = 1.3521;
+    // let searchLng = 103.8646;
     resalePriceInfo = await searchResalePrice ();
     // console.log(resalePriceInfo);
 
     try{
-    // for (let i = 256650 ; i <= resalePriceInfo.length;i++){
-    for (let i = 256650 ; i <= resalePriceInfo.length;i++){
+    for (let i = 123919 ; i <= resalePriceInfo.length;i++){
       let blkStreetName = resalePriceInfo[i].block + " " + resalePriceInfo[i].street_name;
       let monthTransacted = resalePriceInfo[i].month;
       let townTransacted = resalePriceInfo[i].town;
@@ -137,8 +133,8 @@ async function searchLastTransacted(latBoundaryTop,latBoundaryBottom,lngBoundary
   resalePriceInfo = await searchResalePrice ();
 
   let lastTransactedClusterGroup = L.markerClusterGroup();  
-  // start from 256650 to show recent data that are more relevant for the user and because the original dataset is to big to show all
-  for (let i = 256650 ; i <= resalePriceInfo.length;i++){
+  // show last 1000 records due to large dataset
+  for (let i = 123919 ; i <= resalePriceInfo.length;i++){
     let blkStreetName = resalePriceInfo[i].block + " " + resalePriceInfo[i].street_name;
     let monthTransacted = resalePriceInfo[i].month;
     let townTransacted = resalePriceInfo[i].town;
