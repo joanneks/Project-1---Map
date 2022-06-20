@@ -14,6 +14,7 @@ async function searchResalePrice (){
   return resalePriceInfo;
 }
 
+
 let radioBtn2Room = document.querySelector('#room2');
 let radioBtn3Room = document.querySelector('#room3');
 let radioBtn4Room = document.querySelector('#room4');
@@ -30,6 +31,10 @@ async function searchFlatTypeResults(radioBtn,radioBtnValue){
     resalePriceInfo = await searchResalePrice ();
     // console.log(resalePriceInfo);
 
+    let searchTownOption = document.querySelector('#searchTown');
+    let searchTownOptionValue = searchTownOption.value;
+    console.log(radioBtnValue);
+
     try{
     for (let i = 123919 ; i <= resalePriceInfo.length;i++){
       let blkStreetName = resalePriceInfo[i].block + " " + resalePriceInfo[i].street_name;
@@ -43,45 +48,55 @@ async function searchFlatTypeResults(radioBtn,radioBtnValue){
       
       let flatType = resalePriceInfo[i].flat_type;
       let resultsList = document.createElement("div");
+      console.log(flatType,townTransacted);
 
       if(flatType==radioBtnValue){
-        console.log(flatType);
-        resultsList.innerHTML = `
-          <div class="container-fluid p-1" class="resultsList">
-              <p id="lastTransactedAddress">${blkStreetName}</p>    
-              <table class="table table-hover table-striped" id="lastTransactedTable">
-              <tr>
-                  <td>Town:</td>
-                  <td>${townTransacted}</td>
-              </tr>
-              <tr>
-                  <td>Sold on:</td>
-                  <td>${monthTransacted}</td>
-              </tr>
-              <tr>
-                  <td>Lease Commencement:</td>
-                  <td>${commencementYear}</td>
-              </tr>
-              <tr>
-                  <td>Remaining Years:</td>
-                  <td>${remainingYears}</td>
-              </tr>
-              <tr>
-                  <td>Last Transacted Price:</td>
-                  <td>${lastTransactedPrice}</td>
-              </tr>
-              <tr>
-                  <td>Flat Type (Area):</td>
-                  <td>${flatType}, (${flatArea} sqm)</td>
-              </tr>
-              <tr>
-                  <td>Flat Level Range:</td>
-                  <td>${flatStoreyRange}</td>
-              </tr>
-              </table>
-          </div>
-        `;
-        document.querySelector("#resultsListParentDiv").appendChild(resultsList);
+        // console.log(flatType);
+          // console.log(townTransacted==searchTownOptionValue);
+        
+        if(townTransacted==searchTownOptionValue){
+        //   console.log(townTransacted);
+          resultsList.innerHTML = `
+            <div class="container-fluid p-1">
+              <p id="lastTransactedAddress">${blkStreetName}</p>   
+                <table class="table table-hover table-striped" id="lastTransactedTable">
+                <tr>
+                    <td>Town:</td>
+                    <td>${townTransacted}</td>
+                </tr>
+                <tr>
+                    <td>Sold on:</td>
+                    <td>${monthTransacted}</td>
+                </tr>
+                <tr>
+                    <td>Lease Commencement:</td>
+                    <td>${commencementYear}</td>
+                </tr>
+                <tr>
+                    <td>Remaining Years:</td>
+                    <td>${remainingYears}</td>
+                </tr>
+                <tr>
+                    <td>Last Transacted Price:</td>
+                    <td>${lastTransactedPrice}</td>
+                </tr>
+                <tr>
+                    <td>Flat Type (Area):</td>
+                    <td>${flatType}, (${flatArea} sqm)</td>
+                </tr>
+                <tr>
+                    <td>Flat Level Range:</td>
+                    <td>${flatStoreyRange}</td>
+                </tr>
+                </table>
+            </div>
+          `;
+          document.querySelector("#resultsListParentDiv").appendChild(resultsList);
+        }else{
+          resultsList.innerHTML = `
+          <div class="container-fluid p-1">No results found.</diV
+          `
+        }
       };
     };    
     }catch(error){};
