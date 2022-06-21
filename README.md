@@ -1,6 +1,6 @@
 # **EASY SEARCH**
  
-Access the live demo website [here]().
+Access the live demo website [here](https://admirable-rolypoly-75e75e.netlify.app).
 
 
 ## **Overview**
@@ -108,10 +108,11 @@ Mobile Responsiveness
 
 |[Flaticon](https://www.flaticon.com/free-icons/) - Icon made by | Image name in gitpod |
 | ---------------- | ----------- |
-| surang | searchFlat.png |
+| surang | searchFlat.png, hospital.png |
+| Eucalyp | medicalClinic.png|
 | juicy_fish | supermarket.png|
 | amonrat rungreangfangsai | primarySchool.png|
-| Freepik | lastTransacted.png, train.png, secondarySchool.png, nursery.png, preschool.png, food.png|
+| Freepik | lastTransacted.png, train.png, secondarySchool.png, nursery.png, preschool.png, food.png, dental.png|
 
 ### **_Other Sources_**
 1. Lecturer (Paul Chor) for his slides, tutorials and notes
