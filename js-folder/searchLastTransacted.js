@@ -6,7 +6,7 @@ async function searchResalePrice (){
     let resalePriceData = await axios.get(BASE_API_URL,{
         'params': {
           'resource_id': resource_id,
-            'limit': 124919 
+            'limit': 258046 
         }
     });
 
@@ -36,7 +36,7 @@ async function searchFlatTypeResults(radioBtn,radioBtnValue){
     console.log(radioBtnValue);
 
     try{
-    for (let i = 123919 ; i <= resalePriceInfo.length;i++){
+    for (let i = 257046 ; i <= resalePriceInfo.length;i++){
       let blkStreetName = resalePriceInfo[i].block + " " + resalePriceInfo[i].street_name;
       let monthTransacted = resalePriceInfo[i].month;
       let townTransacted = resalePriceInfo[i].town;
@@ -149,7 +149,7 @@ async function searchLastTransacted(latBoundaryTop,latBoundaryBottom,lngBoundary
 
   let lastTransactedClusterGroup = L.markerClusterGroup();  
   // show last 1000 records due to large dataset
-  for (let i = 123919 ; i <= resalePriceInfo.length;i++){
+  for (let i = 257046 ; i <= resalePriceInfo.length;i++){
     let blkStreetName = resalePriceInfo[i].block + " " + resalePriceInfo[i].street_name;
     let monthTransacted = resalePriceInfo[i].month;
     let townTransacted = resalePriceInfo[i].town;
