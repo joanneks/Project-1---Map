@@ -31,17 +31,45 @@ Organisation aims to promote awareness of the current HDB prices in Singapore to
 | As a resale flat buyer, I want to know the general prices of the resale flats for a certain flat type within a certain town. User goal: to determine if the flats in that town is within their budget for them to consider moving to. | Based on the Town and flat type selected, a list of the last transacted resale flats and its details by Town and flat type will appear. |
 | As a resale flat/SBF/BTO buyer, I want to know if I qualify for the HDB Proximity Housing Grant, Your parents/ married child are living in an HDB flat or private residential property which is within 4km. | Based on the postal code and radius of 4km set by the user, the circle markers of their search results for the considered flat and parent's house should show if it overlaps or not. If it overlaps, it means they will qualify, otherwise, they are not eligible for it. |As part of HDB's Board, I am concerned with the fast increasing prices of resale HDB flats. User goal: to slow the growth of resale flat prices by allowing users to gain awareness of the general price paid by others in mature and non-mature estates.| Provide last transacted resale flat details (such as price, flat area etc) around their considered flat or by town and flat type. |
 
-
 ### **Scope**
+
+### **Functional Requirements**
+
+| Features | Content | 
+| ----------- | ----------- |
+|  Search for a location by postal code and set the radius (circle marker) | The searched location will be marked on the map and the circle marker indicating the radius will appear. The address of the searched location will be shown when you click on the marker |
+|  Select the type of amenities or last transacted resale flats to show within the radius | The different type of amenities near the search location within the radius set will appear on the map with different marker icons. AMENITIES - the name and addresses will be shown when you click on the marker. LAST TRANSACTED RESALE FLATS - the month/year transacated, town, lease commencement year, price, flat type, flat area, flat level will be shown when you click on the marker.|
+| Search for the list of last transacted resale flats by town and flat type. | A list of the last transacted resale flats will show. Types of details of the last transacted resale flats is the same as mentioned earlier.|
+
+### **Non-Functional Requirements**
+Performance Criteria
+Mobile Responsiveness
 
 ### **Structure**
 
+![Structure](images-folder/structure.jpg)
+
 ### **Skeleton**
+
+![Skeleton for Desktop](images-folder/skeleton.jpg)
 
 ### **Surface**
 
+1. Colours
+    - Used #f8f9fa an easy colour to read against
+    - Used Bootstrap warning color for highlighting brand and important button
+    - Used Boostrap success color for search button
+    - Used Bootsrap secondary color for legend dropdown button for emphasis on the button
+    - Used Bootstrap info color forthe FAQ accordion button to blend in with the map better.
+
+
+    - ![](images-folder/f8f9fa.png) ![](images-folder/bootstrapColor2.png) ![](images-folder/bootstrapColor1.png)
+
+2. Fonts
+   - Used san-serif fonts from Google Fonts: "Urbanist" and "Anek Malayalam".
+   - Bootstrap default fonts for components like buttons and accordion were used.
+
 ## **Technologies and Other Sources Used**
----
 
 ### **_Technologies_**
 1. [GoogleFonts](https://fonts.google.com/) for CSS styling

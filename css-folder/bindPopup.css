@@ -1,12 +1,13 @@
-.trainPopupHeader, .supermarketPopupHeader{
+.trainPopupHeader, .supermarketPopupHeader, .searchNearbyPopupHeader{
     font-family: 'Urbanist', sans-serif;
-    font-size:medium;
+    font-size:large;
+    font-weight:bold
     max-width:230px;
 }
 
 .trainPopup, .supermarketPopup{
     font-family: 'Urbanist', sans-serif;
-    font-size:small;
+    font-size:medium;
     max-width:230px;
     /* text-align: justify; */
 }
@@ -16,6 +17,11 @@
     font-size:large;
     max-width:230px;
     text-align: justify;
+}
+
+#searchNearbyPopup{
+    font-family: 'Urbanist', sans-serif;
+    font-size:medium;
 }
 
 #lastTransactedTable{

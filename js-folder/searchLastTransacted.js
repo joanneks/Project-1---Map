@@ -33,6 +33,7 @@ async function searchFlatTypeResults(radioBtn,radioBtnValue){
 
     let searchTownOption = document.querySelector('#searchTown');
     let searchTownOptionValue = searchTownOption.value;
+    let resultFalseCount = 0;
     console.log(radioBtnValue);
 
     try{
@@ -48,16 +49,13 @@ async function searchFlatTypeResults(radioBtn,radioBtnValue){
       
       let flatType = resalePriceInfo[i].flat_type;
       let resultsList = document.createElement("div");
-      console.log(flatType,townTransacted);
 
-      if(flatType==radioBtnValue){
-        // console.log(flatType);
-          // console.log(townTransacted==searchTownOptionValue);
+      if(flatType==radioBtnValue && townTransacted==searchTownOptionValue){
+        console.log(flatType);
+        console.log(flatType,townTransacted);
         
-        if(townTransacted==searchTownOptionValue){
-        //   console.log(townTransacted);
           resultsList.innerHTML = `
-            <div class="container-fluid p-1">
+            <div class="container-fluid row row-cols-auto">
               <p id="lastTransactedAddress">${blkStreetName}</p>   
                 <table class="table table-hover table-striped" id="lastTransactedTable">
                 <tr>
@@ -92,14 +90,21 @@ async function searchFlatTypeResults(radioBtn,radioBtnValue){
             </div>
           `;
           document.querySelector("#resultsListParentDiv").appendChild(resultsList);
-        }else{
+      }
+      else{
+        // console.log('no result found');
+        resultFalseCount++
+        console.log(resultFalseCount)
+        if(resultFalseCount==1000){
           resultsList.innerHTML = `
-          <div class="container-fluid p-1">No results found.git push</diV
+          <div class="container-fluid p-1">No results found</div>
           `
+        document.querySelector("#resultsListParentDiv").appendChild(resultsList);
         }
-      };
+      }
     };    
     }catch(error){};
+
     let resetBtn = document.querySelector('#resetBtn');
     resetBtn.addEventListener('click',function(){
     let resultsListParentDiv = document.querySelector('#resultsListParentDiv');

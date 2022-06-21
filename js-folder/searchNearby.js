@@ -32,8 +32,8 @@ async function searchNearby(searchLat,searchLng,radius,categories,nearbyLayer,ic
             let nearbyMarker = L.marker([lat, lng], { icon: nearbyIcon });
             nearbyMarker.addTo(nearbyLayer);
             nearbyMarker.bindPopup(`
-            <p><h5>${name}</h5></p>
-            <p>Address: ${address}</p>
+            <p><h5 class="searchNearbyPopupHeader">${name}</h5></p>
+            <p class="searchNearbyPopup">Address: ${address}</p>
             `)
         }
         nearbyMarker()
