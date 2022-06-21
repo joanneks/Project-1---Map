@@ -3,7 +3,9 @@ let mrtArr = [];
 
 //retrieve all mrt station details
 async function searchTrainStations() {
-  let response = await axios.get('02-json/trainStations.json');
+  let response = await axios.get('
+  
+  -folder/trainStations.json');
   let mrtStationsAll = response.data;
 
   //create empty array to create one object for each mrt (i.e no duplicate mrt station names) 

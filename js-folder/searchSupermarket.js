@@ -1,7 +1,7 @@
 let supermarketLayer = L.layerGroup();
 
 async function searchSupermarkets(latBoundaryTop,latBoundaryBottom,lngBoundaryRight,lngBoundaryLeft) {
-  let response = await axios.get('01-geojson/supermarkets.geojson');
+  let response = await axios.get('geojson-folder/supermarkets.geojson');
   let allSupermarkets = response.data.features;
 
   //Create marker for each supermarket coordinates from geojson lat,lng
