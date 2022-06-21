@@ -94,7 +94,7 @@ async function searchFlatTypeResults(radioBtn,radioBtnValue){
           document.querySelector("#resultsListParentDiv").appendChild(resultsList);
         }else{
           resultsList.innerHTML = `
-          <div class="container-fluid p-1">No results found.</diV
+          <div class="container-fluid p-1">No results found.git push</diV
           `
         }
       };
