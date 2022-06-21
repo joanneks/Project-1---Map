@@ -25,22 +25,22 @@ faq.addEventListener('click',function(){
             <div>
             <h2 class="accordion-header" id="headingOne">
                 <button class="accordion-button bg-info text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    Our Vision and Mission</button><button type="button" class="btn btn-danger" id="closeBtn" style="width:65px;" aria-label="Close">X</button>
+                    FAQs (Frequently Asked Questions)</button><button type="button" class="btn btn-danger" id="closeBtn" style="width:65px;" aria-label="Close">X</button>
             </h2>
             
                 <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                     <div class="accordion-body" id="visionMissionScroll" style="max-height:400px;width:auto;overflow-y:auto;">
-                        <article alt="Our Vision and Mission">
+                        <article>
                                 <section>
-                                    <h2>Our Vision</h2>
-                                    <p>To be Singapore's number one tool in helping resale flat buyers with their purchase considerations</p>
+                                    <h2>Our Aim</h2>
+                                    <p>To help resale/SBF/BTO flat buyers with their house search and purchase considerations</p>
                                 </section>
                                 <section>
-                                    <h2>Our Mission</h2>
+                                    <h2>How to Navigate</h2>
                                     <p>Providing relevant information, such as last transacted prices and amenities within a certain radius, to help resale flat buyers:</p>
                                         <ol>
-                                            <li class="missionList">Determine the price benchmarks that sellers might be expecting</li>
-                                            <li class="missionList">Determine if the seller is selling above the average price for that area</li>
+                                            <li class="missionList">Key in the postal code, set a radius for the flat block in consideration and click search</li>
+                                            <li class="missionList">Hover over the square icon on the top right of the map and select the amenities,healthcare</li>
                                             <li class="missionList">Determine if the amenities/transport system nearby is what they desire</li>
                                             <li class="missionList">Come to a conclusion if the price is worth for the degree of convenience/inconvenience</li>
                                         </ol>    
@@ -169,6 +169,9 @@ document.querySelector('#searchBtn').addEventListener('click',async function(){
     searchNearby(searchLat,searchLng,radius,12055,nurseryLayer,"images-folder/nursery.png")
     searchNearby(searchLat,searchLng,radius,12056,preschoolLayer,"images-folder/preschool.png")
     searchNearby(searchLat,searchLng,radius,13000,foodLayer,"images-folder/food.png")
+    searchNearby(searchLat,searchLng,radius,15007,dentalClinicLayer,"images-folder/dentalClinic.png")
+    searchNearby(searchLat,searchLng,radius,15011,medicalClinicLayer,"images-folder/medicalClinic.png")
+    searchNearby(searchLat,searchLng,radius,15014,hospitalLayer,"images-folder/hospital.png")
 
     try{
     await searchLastTransacted(latBoundaryTop,latBoundaryBottom,lngBoundaryRight,lngBoundaryLeft);
@@ -188,6 +191,9 @@ clearResultsBtn.addEventListener('click',function(){
     secondarySchoolLayer.clearLayers();
     foodLayer.clearLayers();
     searchFlatLayer.clearLayers();
+    dentistLayer.clearLayers();
+    medicalClinicLayer.clearLayers();
+    hospitalLayer.clearLayers();
 });
 
 
@@ -196,6 +202,9 @@ let secondarySchoolLayer = L.layerGroup();
 let nurseryLayer = L.layerGroup();
 let preschoolLayer = L.layerGroup();
 let foodLayer = L.layerGroup();
+let dentalClinicLayer = L.layerGroup();
+let medicalClinicLayer = L.layerGroup();
+let hospitalLayer = L.layerGroup();
 
 //Create toggle for layers
 let baseLayers = {
@@ -209,6 +218,9 @@ let overlays = {
     'Preschools':preschoolLayer,
     'Primary Schools':primarySchoolLayer,
     'Secondary Schools':secondarySchoolLayer,
+    'Dental Clinic':dentalClinicLayer,
+    'Medical Clinic':medicalClinicLayer,
+    'Hospital':hospitalLayer,
     'Food and Beverage':foodLayer
 }
 

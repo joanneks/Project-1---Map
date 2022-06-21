@@ -69,6 +69,9 @@ Mobile Responsiveness
    - Used san-serif fonts from Google Fonts: "Urbanist" and "Anek Malayalam".
    - Bootstrap default fonts for components like buttons and accordion were used.
 
+3. Icons
+   - Used for markers and legend dropdown.
+
 ## **Technologies and Other Sources Used**
 
 ### **_Technologies_**
@@ -94,7 +97,8 @@ Mobile Responsiveness
    - [REST APIs - Search](https://www.onemap.gov.sg/docs/#onemap-rest-apis)
 
 3. Train source
-   - [Train source]()
+   - [CSV File](https://data.world/)
+   - [Conversion to JSON File](https://www.convertcsv.com/csv-to-json.htm)
 
 4. Foursquare
    - [Place Search API](https://developer.foursquare.com/reference/place-search)

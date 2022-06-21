@@ -142,7 +142,7 @@ body{
     #map{height:75vh;}
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1180px) {
     #map{height:73vh;}
 }
 
