@@ -106,14 +106,12 @@ Test Cases can be found [here](https://docs.google.com/spreadsheets/d/1xbJxDwZdb
 2. [Axios](https://cdnjs.com/libraries/axios) for API requests
 3. [Leaflet](https://leafletjs.com/examples/quick-start/) and [Marker Cluster](https://github.com/Leaflet/Leaflet.markercluster) for interactive map
    - Map, Markers, Layer Control, Marker Cluster
-4. [W3schools](https://www.w3schools.com/) for HTML, CSS, Javascript
-    - Collapsible
-5. [Bootstrap](https://getbootstrap.com/docs/5.2/getting-started/introduction/) for HTML, CSS Styling
+4. [Bootstrap](https://getbootstrap.com/docs/5.2/getting-started/introduction/) for HTML, CSS Styling
     - Buttons, Accordian, Table, Badge, Dropdown menu
     - Input group (Custom forms - Custom Select)
-6. [Gitpod](https://gitpod.io/workspaces) for version control
-7. [Github](https://github.com/) for code editing and respository
-8. [Netlify](https://www.netlify.com/) for deployment
+5. [Gitpod](https://gitpod.io/workspaces) for version control
+6. [Github](https://github.com/) for code editing and respository
+7. [Netlify](https://www.netlify.com/) for deployment
 
 ### **_Data Sources_**
 
@@ -145,3 +143,8 @@ Test Cases can be found [here](https://docs.google.com/spreadsheets/d/1xbJxDwZdb
 ### **_Other Sources_**
 1. Lecturer (Paul Chor) for his slides, tutorials and notes
 2. Teaching Assistants (Ace Liang, Lim Yong Sheng, Razia Wong) for their guidance
+3. [StackOverFlow](https://stackoverflow.com/) for guidance. 3 particular mentions:
+   - using regular expression to convert numbers into numbers separated by commas
+   - capitalising the first character of every word
+4. [W3schools](https://www.w3schools.com/) for HTML, CSS, Javascript guidance
+    - Collapsible
