@@ -1,7 +1,6 @@
 .trainPopupHeader, .supermarketPopupHeader, .searchNearbyPopupHeader{
     font-family: 'Urbanist', sans-serif;
     font-size:large;
-    font-weight:bold
     max-width:230px;
 }
 
@@ -9,7 +8,6 @@
     font-family: 'Urbanist', sans-serif;
     font-size:medium;
     max-width:230px;
-    /* text-align: justify; */
 }
 
 .searchFlatPopup{

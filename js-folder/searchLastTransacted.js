@@ -1,4 +1,5 @@
 let lastTransactedLayer = L.layerGroup();
+let totalDataPoint = 1500
 
 //limit has to be hardcoded and depends on the total records on data.gov. 
 //It changes frequently so my data might become outdated
@@ -17,15 +18,11 @@ async function searchResalePrice (){
   return resalePriceInfo;
 }
 
-let totalDataPoint = 1500
-
-
 async function searchLastTransacted(latBoundaryTop,latBoundaryBottom,lngBoundaryRight,lngBoundaryLeft){
 
   resalePriceInfo = await searchResalePrice ();
 
   let lastTransactedClusterGroup = L.markerClusterGroup();  
-  // resalePriceInfo.length-totalDataPoint is to show last 2000 records due to large dataset
   for (let i = resalePriceInfo.length-totalDataPoint ; i <= resalePriceInfo.length;i++){
     let blkStreetName = resalePriceInfo[i].block + " " + resalePriceInfo[i].street_name;
     let monthTransacted = resalePriceInfo[i].month;
@@ -53,7 +50,6 @@ async function searchLastTransacted(latBoundaryTop,latBoundaryBottom,lngBoundary
       let lat = parseFloat(postalSearch.data.results[0].LATITUDE);
       let lng = parseFloat(postalSearch.data.results[0].LONGITUDE);
       let address = capitaliseFirstLetter(postalSearch.data.results[0].ADDRESS.toLowerCase());
-      // console.log(postalSearch.data.results);
 
       try{
       if(lat<latBoundaryTop && lat>latBoundaryBottom && lng<lngBoundaryRight && lng>lngBoundaryLeft){
@@ -66,7 +62,7 @@ async function searchLastTransacted(latBoundaryTop,latBoundaryBottom,lngBoundary
         // create marker, bindpopup ,add to cluster group
         let lastTransactedMarker = L.marker([lat, lng], { icon: lastTransactedIcon});
         lastTransactedMarker.addTo(lastTransactedClusterGroup);
-        //add clustergroup to later
+        //add clustergroup to layer
         lastTransactedClusterGroup.addTo(lastTransactedLayer);
         lastTransactedMarker.bindPopup(`
         <div class="container-fluid p-1">
@@ -109,7 +105,7 @@ async function searchLastTransacted(latBoundaryTop,latBoundaryBottom,lngBoundary
 
     try {
     searchLastTransactedPostalCode(blkStreetName,latBoundaryTop,latBoundaryBottom,lngBoundaryRight,lngBoundaryLeft);
-    } catch (e) {}
+    } catch (e) {};
   };
 };
 

@@ -1,6 +1,7 @@
 //create map global variable --> other functions require this variable
 let map = createMap();
 
+//create collapsible "Expand" button for the search feature at the top of website
 let collapsible = document.getElementsByClassName("collapsible");
 
 for (i = 0; i < collapsible.length; i++) {
@@ -16,7 +17,7 @@ for (i = 0; i < collapsible.length; i++) {
 }
 
 
-//faq Popup
+//create faq accordion Popup
 let faq = document.querySelector('#faq');
 faq.addEventListener('click',function(){
     let faqAccordion = document.querySelector('#faqAccordion');
@@ -74,14 +75,14 @@ faq.addEventListener('click',function(){
             </div>
     `
     
-    
     let closeBtn = document.querySelector('#closeBtn');
     closeBtn.addEventListener('click',function(){
         faqAccordion.innerHTML = `
         <div class="accordion-item" style="display:none"></div>
-`        
+        `        
     });
-    });
+});
+
 
 document.querySelector('#searchBtn').addEventListener('click',async function(){
     //retrieve User input:postal code and radius
@@ -131,8 +132,8 @@ document.querySelector('#searchBtn').addEventListener('click',async function(){
     let lngBoundaryLeft = parseFloat(searchLng)- parseFloat(searchRadius*kmToDegreeConverter);
     // console.log(latBoundaryTop,latBoundaryBottom,lngBoundaryRight,lngBoundaryLeft);
 
+    //retrieve supermarket details within set boundary and show markers
     await searchSupermarkets(latBoundaryTop,latBoundaryBottom,lngBoundaryRight,lngBoundaryLeft);
-
 
     //retrieve all mrt station details
     await searchTrainStations();
@@ -158,6 +159,7 @@ document.querySelector('#searchBtn').addEventListener('click',async function(){
         showTrainMarkers(stationName,stationNo,lat,lng,latBoundaryTop,latBoundaryBottom,lngBoundaryRight,lngBoundaryLeft);
     };
     
+    //create markers for amenities retrieved from Foursquare API
     searchNearby(searchLat,searchLng,radius,12059,secondarySchoolLayer,"images-folder/secondarySchool.png")
     searchNearby(searchLat,searchLng,radius,12058,primarySchoolLayer,"images-folder/primarySchool.png")
     searchNearby(searchLat,searchLng,radius,12055,nurseryLayer,"images-folder/nursery.png")
@@ -185,7 +187,7 @@ clearResultsBtn.addEventListener('click',function(){
     secondarySchoolLayer.clearLayers();
     foodLayer.clearLayers();
     searchFlatLayer.clearLayers();
-    dentistLayer.clearLayers();
+    dentalClinicLayer.clearLayers();
     medicalClinicLayer.clearLayers();
     hospitalLayer.clearLayers();
 });

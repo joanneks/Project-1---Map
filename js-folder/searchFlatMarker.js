@@ -35,7 +35,6 @@ async function searchFlatbyPostalCode(searchVal,searchRadius){
     
     let searchLat = parseFloat(postalSearch.data.results[0].LATITUDE);
     let searchLng = parseFloat(postalSearch.data.results[0].LONGITUDE);
-    let searchLatLng = [searchLat,searchLng];
     let searchAddress = capitaliseFirstLetter(postalSearch.data.results[0].ADDRESS.toLowerCase());
     console.log(postalSearch.data.results);
 

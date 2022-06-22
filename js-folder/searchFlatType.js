@@ -1,15 +1,4 @@
 
-// let radioBtn2Room = document.querySelector('#room2');
-// let radioBtn3Room = document.querySelector('#room3');
-// let radioBtn4Room = document.querySelector('#room4');
-// let radioBtn5Room = document.querySelector('#room5');
-// let radioBtn2RoomValue = radioBtn2Room.value;
-// let radioBtn3RoomValue = radioBtn3Room.value;
-// let radioBtn4RoomValue = radioBtn4Room.value;
-// let radioBtn5RoomValue = radioBtn5Room.value;
-
-
-
 async function searchFlatTypeResults(){
   let searchFlatTypeBtn = document.querySelector('#searchFlatTypeBtn');
   let radioBtn2Room = document.querySelector('#room2');
@@ -35,8 +24,6 @@ async function searchFlatTypeResults(){
     }console.log(radioBtnValue);
 
     resalePriceInfo = await searchResalePrice ();
-    // console.log(resalePriceInfo);
-
     let searchTownOption = document.querySelector('#searchTown');
     let searchTownOptionValue = searchTownOption.value;
     let resultFalseCount = 0;
@@ -97,7 +84,6 @@ async function searchFlatTypeResults(){
             document.querySelector("#resultsListParentDiv").appendChild(resultsList);
         }
         else{
-          // console.log('no result found');
           resultFalseCount++
           console.log(resultFalseCount)
           if(resultFalseCount==totalDataPoint){
