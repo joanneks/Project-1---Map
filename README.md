@@ -112,7 +112,8 @@ Test Cases can be found [here](https://docs.google.com/spreadsheets/d/1xbJxDwZdb
     - Buttons, Accordian, Table, Badge, Dropdown menu
     - Input group (Custom forms - Custom Select)
 6. [Gitpod](https://gitpod.io/workspaces) for version control
-7. [Github]() for code editing, local server and respository
+7. [Github](https://github.com/) for code editing and respository
+8. [Netlify](https://www.netlify.com/) for deployment
 
 ### **_Data Sources_**
 
@@ -123,9 +124,9 @@ Test Cases can be found [here](https://docs.google.com/spreadsheets/d/1xbJxDwZdb
 2. Onemap.gov.sg
    - [REST APIs - Search](https://www.onemap.gov.sg/docs/#onemap-rest-apis)
 
-3. Train source
-   - [CSV File](https://data.world/)
-   - [Conversion to JSON File](https://www.convertcsv.com/csv-to-json.htm)
+3. Train json
+   - CSV File retrieved from [dataworld](https://data.world/)
+   - Conversion to JSON File from [convertcsv](https://www.convertcsv.com/csv-to-json.htm)
 
 4. Foursquare
    - [Place Search API](https://developer.foursquare.com/reference/place-search)
@@ -133,7 +134,7 @@ Test Cases can be found [here](https://docs.google.com/spreadsheets/d/1xbJxDwZdb
 
 ### **_Image Sources_**
 
-|[Flaticon](https://www.flaticon.com/free-icons/) - Icon made by | Image name in gitpod |
+|[Flaticon](https://www.flaticon.com/) - Icon made by | Image name in gitpod |
 | ---------------- | ----------- |
 | surang | searchFlat.png, hospital.png |
 | Eucalyp | medicalClinic.png|
