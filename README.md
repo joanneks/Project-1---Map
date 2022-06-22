@@ -4,7 +4,6 @@ Access the live demo website [here](https://easysearch-forflatbuyers.netlify.app
 
 
 ## **Overview**
----
 
 The main purpose of this website is to aid users in their search of a HDB and discover the amenities around their potential/future house.
 
@@ -21,7 +20,7 @@ Through the website, buyers should be able to make informed decisions on what th
 Organisation aims to promote awareness of the current HDB prices in Singapore to reduce the acceleration in prices of the HDB resale market. 
 
 ## **UIUX**
----
+
 ### **Strategy**
 
 | User | User Stories | Acceptance Criteria | 
@@ -33,7 +32,7 @@ Organisation aims to promote awareness of the current HDB prices in Singapore to
 
 ### **Scope**
 
-### **Functional Requirements**
+#### **Functional Requirements**
 
 | Features | Content | 
 | ----------- | ----------- |
@@ -41,7 +40,7 @@ Organisation aims to promote awareness of the current HDB prices in Singapore to
 |  Select the type of amenities or last transacted resale flats to show within the radius | The different type of amenities near the search location within the radius set will appear on the map with different marker icons. AMENITIES - the name and addresses will be shown when you click on the marker. LAST TRANSACTED RESALE FLATS - the month/year transacated, town, lease commencement year, price, flat type, flat area, flat level will be shown when you click on the marker.|
 | Search for the list of last transacted resale flats by town and flat type. | A list of the last transacted resale flats will show. Types of details of the last transacted resale flats is the same as mentioned earlier.|
 
-### **Non-Functional Requirements**
+#### **Non-Functional Requirements**
 Performance Criteria
 Mobile Responsiveness
 
@@ -76,7 +75,6 @@ Mobile Responsiveness
 ## **Testing of Website**
 Test Cases can be found [here](https://docs.google.com/spreadsheets/d/1xbJxDwZdbLqOsloi4qQMmuulgfT1Zn-UxqEWU1mqOkA/edit?usp=sharing)
 
-## **Technologies and Other Sources Used**
 
 ### **Possible Enhancements**
 1. To include validation for the postal code search. To only have 6 digits and numbers only.
@@ -98,6 +96,10 @@ Test Cases can be found [here](https://docs.google.com/spreadsheets/d/1xbJxDwZdb
    - the default limit query from accessing from data.gov is 100. To get the most latest result, I will have to see the total number of records they have and hardcode it into the parameter query using axios.
      - If for example, data.gov changes the total number of records from 200,000 to 100,000. The hardcoded 200,000 total limit query and for loop that extracts only the last 1,000 results will return with no resale flat last transacted markers. The search by town and flat type will also not have any results
      - If for example, data.gov changes the total number of records from 100,000 to 200,000. The hardcoded 100,000 total limit query and for loop that extracts only the last 1,000 results will show outdated resale flat last transacted markers.
+
+3. I had to manually create a lat lng boundary to show the markers for trains, resale flats last transacted and supermarkets because these datasets did not come from foursquare API. 
+
+## **Technologies and Other Sources Used**
 
 ### **_Technologies_**
 1. [GoogleFonts](https://fonts.google.com/) for CSS styling
