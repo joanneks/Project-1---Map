@@ -41,7 +41,6 @@
     margin-right:19px;
 }
 
-
 #faqAccordion{
     font-family: 'Anek Malayalam', sans-serif;
     position:absolute;
@@ -91,6 +90,10 @@ p{
 #searchTownLabel{
     width:80px;
     justify-content: center;
+}
+
+#searchFlatTypeBtn{
+    margin-right:10px;
 }
 
 body{
@@ -149,18 +152,22 @@ body{
 }
 
 @media screen and (max-width: 991px) {
-    #map{height:70vh;}
+    #map{height:80vh;}
+    #break5 {width: 100%;}
     #faqAccordionScroll{max-height:260px;max-width:700px;overflow-y:auto;}
 }
 
 @media screen and (max-width: 768px) {
     #map{height:78vh;}
     #faqAccordionScroll{max-height:300px;max-width:600px;overflow-y:auto;}
+    #break5 {width: 0%;}
+    #break7 {width: 100%;}
 }
 
 @media screen and (max-width: 576px) {
     #break4 {width: 100%;}
     #break5 {width: 100%;}
+    #break7 {width: 0%;}
     #map{height:72vh;}
     #faqAccordionScroll{max-height:270px;max-width:400px;overflow-y:auto;}
 }
@@ -177,7 +184,7 @@ body{
     #break4 {width: 0%;}
     #break5 {width: 0%;}
     #break6 {width: 100%;}
-    #map{height:70vh;}
+    #map{height:68vh;}
     #faqAccordionScroll{max-height:300px;max-width:330px;overflow-y:auto;}
 }
 
@@ -186,7 +193,7 @@ body{
     #break4 {width: 100%;}
     #break5 {width: 0%;}
     #break6 {width: 100%;}
-    #map{height:65vh;}
+    #map{height:62vh;}
     #faqAccordionScroll{max-height:200px;max-width:300px;overflow-y:auto;}
 }
 

@@ -159,7 +159,6 @@
                 <label id="radioFlatDivLabel">Display a list of the last transacted flats by Town and Flat Type:</label>
                 <div id="radioFlatDiv1">
                 <!-- Town Dropdown Selection -->
-                <!-- <div style="display:flex"> -->
                     <div class="p-2" id="searchTownLabelDiv">
                         <label class="input-group-text" for="searchTown" id="searchTownLabel">Town</label>
                     </div>
@@ -194,9 +193,8 @@
                         <option value="YISHUN">YISHUN</option>
                         </select>
                     </div>
-                <!-- </div> -->
-
-                <!-- <div id="radioFlatDiv1"> -->
+                    
+                    <div id="break7"></div>
                     <div class="form-check radioFlatType">
                         <input class="form-check-input" type="radio" name="radioFlatType" id="room2" value="2 ROOM">
                         <label class="form-check-label radioFlatTypeLabel" for="2room">2 Room</label>
@@ -216,10 +214,10 @@
                         <label class="form-check-label radioFlatTypeLabel" for="5room">5 Room</label>
                     </div>
                     <div id="break5"></div>
-                    <div class="radioFlatType">
-                    <button class="btn btn-success" id="searchFlatTypeBtn">Search</button>
-                    <button class="btn btn-outline-secondary" id="resetBtn">Reset Results</button>
-                    </div>
+                    <!-- <div class="radioFlatType"> -->
+                        <button class="btn btn-success radioFlatType" id="searchFlatTypeBtn">Search</button>
+                        <button class="btn btn-outline-secondary radioFlatType" id="resetBtn">Reset</button>
+                    <!-- </div> -->
                 </div>
                 <div class="container-fluid row row-cols-auto" id="resultsListParentDiv">
         

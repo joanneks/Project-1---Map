@@ -1,22 +1,45 @@
 
-let radioBtn2Room = document.querySelector('#room2');
-let radioBtn3Room = document.querySelector('#room3');
-let radioBtn4Room = document.querySelector('#room4');
-let radioBtn5Room = document.querySelector('#room5');
-let radioBtn2RoomValue = radioBtn2Room.value;
-let radioBtn3RoomValue = radioBtn3Room.value;
-let radioBtn4RoomValue = radioBtn4Room.value;
-let radioBtn5RoomValue = radioBtn5Room.value;
+// let radioBtn2Room = document.querySelector('#room2');
+// let radioBtn3Room = document.querySelector('#room3');
+// let radioBtn4Room = document.querySelector('#room4');
+// let radioBtn5Room = document.querySelector('#room5');
+// let radioBtn2RoomValue = radioBtn2Room.value;
+// let radioBtn3RoomValue = radioBtn3Room.value;
+// let radioBtn4RoomValue = radioBtn4Room.value;
+// let radioBtn5RoomValue = radioBtn5Room.value;
 
-async function searchFlatTypeResults(radioBtn,radioBtnValue){
-  radioBtn.addEventListener('click',async function(){
+
+
+async function searchFlatTypeResults(){
+  let searchFlatTypeBtn = document.querySelector('#searchFlatTypeBtn');
+  let radioBtn2Room = document.querySelector('#room2');
+  let radioBtn3Room = document.querySelector('#room3');
+  let radioBtn4Room = document.querySelector('#room4');
+  let radioBtn5Room = document.querySelector('#room5');
+  let radioBtn2RoomValue = radioBtn2Room.value;
+  let radioBtn3RoomValue = radioBtn3Room.value;
+  let radioBtn4RoomValue = radioBtn4Room.value;
+  let radioBtn5RoomValue = radioBtn5Room.value;
+
+  searchFlatTypeBtn.addEventListener('click',async function(){
+
+    let radioBtnValue = 0;
+    if(radioBtn2Room.checked){
+      radioBtnValue = radioBtn2RoomValue
+    }if(radioBtn3Room.checked){
+      radioBtnValue = radioBtn3RoomValue
+    }if(radioBtn4Room.checked){
+      radioBtnValue = radioBtn4RoomValue
+    }if(radioBtn5Room.checked){
+      radioBtnValue = radioBtn5RoomValue
+    }console.log(radioBtnValue);
+
     resalePriceInfo = await searchResalePrice ();
     // console.log(resalePriceInfo);
 
     let searchTownOption = document.querySelector('#searchTown');
     let searchTownOptionValue = searchTownOption.value;
     let resultFalseCount = 0;
-    console.log(radioBtnValue);
 
     try{
       for (let i = resalePriceInfo.length-totalDataPoint ; i <= resalePriceInfo.length;i++){
@@ -99,7 +122,4 @@ async function searchFlatTypeResults(radioBtn,radioBtnValue){
   });
 };
 
-searchFlatTypeResults(radioBtn2Room,radioBtn2RoomValue)
-searchFlatTypeResults(radioBtn3Room,radioBtn3RoomValue)
-searchFlatTypeResults(radioBtn4Room,radioBtn4RoomValue)
-searchFlatTypeResults(radioBtn5Room,radioBtn5RoomValue)
+searchFlatTypeResults();
