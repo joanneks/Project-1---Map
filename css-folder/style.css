@@ -153,12 +153,12 @@ body{
 
 @media screen and (max-width: 991px) {
     #map{height:70vh;}
-    #faqAccordionScroll{max-height:260px;max-width:700px;overflow-y:auto;}
+    #faqAccordionScroll{max-height:300px;max-width:700px;overflow-y:auto;}
 }
 
 @media screen and (max-width: 768px) {
     #map{height:78vh;}
-    #faqAccordionScroll{max-height:270px;max-width:500px;overflow-y:auto;}
+    #faqAccordionScroll{max-height:300px;max-width:600px;overflow-y:auto;}
 }
 
 @media screen and (max-width: 576px) {
@@ -181,7 +181,7 @@ body{
     #break5 {width: 0%;}
     #break6 {width: 100%;}
     #map{height:70vh;}
-    #faqAccordionScroll{max-height:260px;max-width:300px;overflow-y:auto;}
+    #faqAccordionScroll{max-height:300px;max-width:330px;overflow-y:auto;}
 }
 
 @media screen and (max-width: 375px) {
@@ -190,14 +190,14 @@ body{
     #break5 {width: 0%;}
     #break6 {width: 100%;}
     #map{height:65vh;}
-    #faqAccordionScroll{max-height:260px;max-width:300px;overflow-y:auto;}
+    #faqAccordionScroll{max-height:210px;max-width:300px;overflow-y:auto;}
 }
 
 @media screen and (max-width: 280px) {
     #break1 {width: 100%;}
     #break6 {width: 0%;}
     #map{height:65vh;}
-    #faqAccordionScroll{max-height:260px;max-width:250px;overflow-y:auto;}
+    #faqAccordionScroll{max-height:210px;max-width:250px;overflow-y:auto;}
     .collapsible {margin-left:11px; margin-bottom:8px;margin-top:8px;}
 }
 

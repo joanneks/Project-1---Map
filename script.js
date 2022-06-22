@@ -45,6 +45,12 @@ faq.addEventListener('click',function(){
                                                 <li class="faqList">Select Last transacted flats to view the recent resale flat transactions within the distance set.</li>
                                                 <li class="faqList">This will provide you with the last transacted price, lease commencement year, flat type/area and other information</li>
                                             </ul>
+                                            <li class="faqList">Check if you are eligible for the HDB Proximity Housing Grant (PHC)</li>
+                                                <ul>
+                                                    <li class="faqList">Make 2 searches by postal code within 4km, one for your parent's house and one for the desired flat block.</li>
+                                                    <li class="faqList">If the circle overlaps, it means you are satisfy the criteria of being 4km from your parent's house.</li>
+                                                    <li class="faqList">For more information on this grant, refer to <a href="https://www.hdb.gov.sg/cs/infoweb/residential/buying-a-flat/flat-and-grant-eligibility/couples-and-families/proximity-housing-grant-families">HDB's PHC website</a>.</li>
+                                                </ul>
                                             <li class="faqList">Select the Town and Flat Type to display the list of last transacted flats by that criteria</li>
                                             <ul>
                                                 <li class="faqList">This will provide you with the last transacted price, lease commencement year, flat type/area and other information.</li>
