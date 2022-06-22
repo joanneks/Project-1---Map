@@ -1,5 +1,8 @@
 let lastTransactedLayer = L.layerGroup();
 
+//limit has to be hardcoded and depends on the total records on data.gov. 
+//It changes frequently so my data might become outdated
+//to retrieve dataset from data.gov for resale flat
 async function searchResalePrice (){
   const BASE_API_URL ="https://data.gov.sg/api/action/datastore_search";
     const resource_id = "f1765b54-a209-4718-8d38-a39237f502b3";
@@ -14,115 +17,7 @@ async function searchResalePrice (){
   return resalePriceInfo;
 }
 
-
-let radioBtn2Room = document.querySelector('#room2');
-let radioBtn3Room = document.querySelector('#room3');
-let radioBtn4Room = document.querySelector('#room4');
-let radioBtn5Room = document.querySelector('#room5');
-let radioBtn2RoomValue = radioBtn2Room.value;
-let radioBtn3RoomValue = radioBtn3Room.value;
-let radioBtn4RoomValue = radioBtn4Room.value;
-let radioBtn5RoomValue = radioBtn5Room.value;
-
-async function searchFlatTypeResults(radioBtn,radioBtnValue){
-  radioBtn.addEventListener('click',async function(){
-    // let searchLat = 1.3521;
-    // let searchLng = 103.8646;
-    resalePriceInfo = await searchResalePrice ();
-    // console.log(resalePriceInfo);
-
-    let searchTownOption = document.querySelector('#searchTown');
-    let searchTownOptionValue = searchTownOption.value;
-    let resultFalseCount = 0;
-    let totalFalseCount = 2000
-    console.log(radioBtnValue);
-
-    try{
-    for (let i = resalePriceInfo.length-totalFalseCount ; i <= resalePriceInfo.length;i++){
-      let blkStreetName = resalePriceInfo[i].block + " " + resalePriceInfo[i].street_name;
-      let monthTransacted = resalePriceInfo[i].month;
-      let townTransacted = resalePriceInfo[i].town;
-      let commencementYear = resalePriceInfo[i].lease_commence_date;
-      let remainingYears = resalePriceInfo[i].remaining_lease;
-      let lastTransactedPrice = resalePriceInfo[i].resale_price;
-      let flatArea = resalePriceInfo[i].floor_area_sqm;
-      let flatStoreyRange = resalePriceInfo[i].storey_range.toLowerCase();
-      
-      let flatType = resalePriceInfo[i].flat_type;
-      let resultsList = document.createElement("div");
-
-      if(flatType==radioBtnValue && townTransacted==searchTownOptionValue){
-        console.log(flatType);
-        console.log(flatType,townTransacted);
-        
-          resultsList.innerHTML = `
-            <div class="container-fluid row row-cols-auto">
-              <p id="lastTransactedAddress">${blkStreetName}</p>   
-                <table class="table table-hover table-striped" id="lastTransactedTable">
-                <tr>
-                    <td>Town:</td>
-                    <td>${townTransacted}</td>
-                </tr>
-                <tr>
-                    <td>Sold on:</td>
-                    <td>${monthTransacted}</td>
-                </tr>
-                <tr>
-                    <td>Lease Commencement:</td>
-                    <td>${commencementYear}</td>
-                </tr>
-                <tr>
-                    <td>Remaining Years:</td>
-                    <td>${remainingYears}</td>
-                </tr>
-                <tr>
-                    <td>Last Transacted Price:</td>
-                    <td>${lastTransactedPrice}</td>
-                </tr>
-                <tr>
-                    <td>Flat Type (Area):</td>
-                    <td>${flatType}, (${flatArea} sqm)</td>
-                </tr>
-                <tr>
-                    <td>Flat Level Range:</td>
-                    <td>${flatStoreyRange}</td>
-                </tr>
-                </table>
-            </div>
-          `;
-          document.querySelector("#resultsListParentDiv").appendChild(resultsList);
-      }
-      else{
-        // console.log('no result found');
-        resultFalseCount++
-        console.log(resultFalseCount)
-        if(resultFalseCount==totalFalseCount){
-          resultsList.innerHTML = `
-          <div class="container-fluid p-1">No results found</div>
-          `
-        document.querySelector("#resultsListParentDiv").appendChild(resultsList);
-        }
-      }
-    };    
-    }catch(error){};
-
-    let resetBtn = document.querySelector('#resetBtn');
-    resetBtn.addEventListener('click',function(){
-    let resultsListParentDiv = document.querySelector('#resultsListParentDiv');
-    resultsListParentDiv.innerHTML = ``;
-    radioBtn2Room.checked = false
-    radioBtn3Room.checked = false
-    radioBtn4Room.checked = false
-    radioBtn5Room.checked = false
-
-})
-  });
-};
-
-searchFlatTypeResults(radioBtn2Room,radioBtn2RoomValue)
-searchFlatTypeResults(radioBtn3Room,radioBtn3RoomValue)
-searchFlatTypeResults(radioBtn4Room,radioBtn4RoomValue)
-searchFlatTypeResults(radioBtn5Room,radioBtn5RoomValue)
+let totalDataPoint = 1500
 
 
 async function searchLastTransacted(latBoundaryTop,latBoundaryBottom,lngBoundaryRight,lngBoundaryLeft){
@@ -130,14 +25,14 @@ async function searchLastTransacted(latBoundaryTop,latBoundaryBottom,lngBoundary
   resalePriceInfo = await searchResalePrice ();
 
   let lastTransactedClusterGroup = L.markerClusterGroup();  
-  // show last 1000 records due to large dataset
-  for (let i = 257046 ; i <= resalePriceInfo.length;i++){
+  // resalePriceInfo.length-totalDataPoint is to show last 2000 records due to large dataset
+  for (let i = resalePriceInfo.length-totalDataPoint ; i <= resalePriceInfo.length;i++){
     let blkStreetName = resalePriceInfo[i].block + " " + resalePriceInfo[i].street_name;
     let monthTransacted = resalePriceInfo[i].month;
     let townTransacted = resalePriceInfo[i].town;
     let commencementYear = resalePriceInfo[i].lease_commence_date;
     let remainingYears = resalePriceInfo[i].remaining_lease;
-    let lastTransactedPrice = resalePriceInfo[i].resale_price;
+    let lastTransactedPrice = resalePriceInfo[i].resale_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     let flatType = capitaliseFirstLetter(resalePriceInfo[i].flat_type.toLowerCase());
     let flatArea = resalePriceInfo[i].floor_area_sqm;
     let flatStoreyRange = resalePriceInfo[i].storey_range.toLowerCase();

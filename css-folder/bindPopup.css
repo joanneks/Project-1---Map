@@ -37,6 +37,6 @@
     text-align: justify;
 }
 
-/* .table{
-    padding:0.5rem 0.25rem;
-} */
+@media screen and (max-width: 375px) {
+    #lastTransactedAddress{padding:8px;}
+}
