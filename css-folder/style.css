@@ -125,7 +125,7 @@ body{
 
 #resultsListParentDiv{
     background-color:floralwhite;
-    width:auto;
+    /* width:auto; */
     max-height: 330px;
     overflow-y: auto;
     margin: 8px 16px 8px 8px;

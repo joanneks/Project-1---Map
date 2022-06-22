@@ -43,8 +43,6 @@ async function searchFlatTypeResults(){
         let resultsList = document.createElement("div");
 
         if(flatType==radioBtnValue && townTransacted==searchTownOptionValue){
-          console.log(flatType);
-          console.log(flatType,townTransacted);
           
             resultsList.innerHTML = `
               <div class="col px-2">
@@ -85,7 +83,6 @@ async function searchFlatTypeResults(){
         }
         else{
           resultFalseCount++
-          console.log(resultFalseCount)
           if(resultFalseCount==totalDataPoint){
             resultsList.innerHTML = `
             <div class="container-fluid p-1">No results found</div>

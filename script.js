@@ -107,7 +107,7 @@ document.querySelector('#searchBtn').addEventListener('click',async function(){
     addMarker(searchLat, searchLng, searchAddress,"images-folder/searchFlat.png",60,60);
     map.setView([searchLat, searchLng], 14.5)
 
-    //convert user input radius from km to m for circle marker in searchFlatByPostalCode.js
+    //convert user input radius from km to m for circle marker function in searchFlatMarker.js
     let radius = searchRadius * 1000;
     if(radius == NaN || radius == false){
         radius = 1000;
