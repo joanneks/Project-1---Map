@@ -49,7 +49,7 @@ faq.addEventListener('click',function(){
                                                 <ul>
                                                     <li class="faqList">Make 2 searches by postal code within 4km, one for your parent's house and one for the desired flat block.</li>
                                                     <li class="faqList">If the circle overlaps, it means you are satisfy the criteria of being 4km from your parent's house.</li>
-                                                    <li class="faqList">For more information on this grant, refer to <a href="https://www.hdb.gov.sg/cs/infoweb/residential/buying-a-flat/flat-and-grant-eligibility/couples-and-families/proximity-housing-grant-families">HDB's PHC website</a>.</li>
+                                                    <li class="faqList">For more information on this grant, refer to <a href ="https://www.hdb.gov.sg/cs/infoweb/residential/buying-a-flat/flat-and-grant-eligibility/couples-and-families/proximity-housing-grant-families" target=”_blank”>HDB's PHC website</a>.</li>
                                                 </ul>
                                             <li class="faqList">Select the Town and Flat Type to display the list of last transacted flats by that criteria</li>
                                             <ul>
