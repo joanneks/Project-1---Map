@@ -72,7 +72,32 @@ Mobile Responsiveness
 3. Icons
    - Used for markers and legend dropdown.
 
+
+## **Testing of Website**
+Test Cases can be found [here](https://docs.google.com/spreadsheets/d/1xbJxDwZdbLqOsloi4qQMmuulgfT1Zn-UxqEWU1mqOkA/edit?usp=sharing)
+
 ## **Technologies and Other Sources Used**
+
+### **Possible Enhancements**
+1. To include validation for the postal code search. To only have 6 digits and numbers only.
+   - to return an error message if the validation fails to inform the user to key again.
+
+2. Upon user's click on expand button, it will change to collapse for better UIUX and to remove the expand button on screens large enough to encompass the search feature at the top.
+
+3. To place the "X" button for the accordion in a better position to look nicer
+
+4. To include commas for the last transacted prices for better legibility.
+
+5. To include the search feature at the bottom to be on top of the map and the map to cover the entire screen so that user will not have difficulties in scrolling.
+
+### **Challenges and Constraints**
+1. Data.gov resale flat price data does not have postal codes. 
+   - Therefore, to get the lat lng, I have to extract and combine the address and block number from data.gov to match to Onemap's api to get the lat lng. Due to short forms used in data.gov, the search critera to match to Onemap API does not work for all datapoint, resulting in many GET request failures. However, as I am using 1000 datapoints for the resale flat markers, there is still adequate datapoints.
+
+2. Data.gov resale flat price data changes the total number of records frequently, affecting my resale flat last transacted markers. The data set is from 2017 to 2022. To get the most updated results, I use a for loop to extract the last 1000 datapoints. I chose 1000 to prevent the website from taking too long to load.
+   - the default limit query from accessing from data.gov is 100. To get the most latest result, I will have to see the total number of records they have and hardcode it into the parameter query using axios.
+     - If for example, data.gov changes the total number of records from 200,000 to 100,000. The hardcoded 200,000 total limit query and for loop that extracts only the last 1,000 results will return with no resale flat last transacted markers. The search by town and flat type will also not have any results
+     - If for example, data.gov changes the total number of records from 100,000 to 200,000. The hardcoded 100,000 total limit query and for loop that extracts only the last 1,000 results will show outdated resale flat last transacted markers.
 
 ### **_Technologies_**
 1. [GoogleFonts](https://fonts.google.com/) for CSS styling
