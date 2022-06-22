@@ -197,7 +197,7 @@ body{
     #break1 {width: 100%;}
     #break6 {width: 0%;}
     #map{height:65vh;}
-    #faqAccordionScroll{max-height:200px;overflow-y:auto;}
+    #faqAccordionScroll{max-height:240px;overflow-y:auto;}
     .collapsible {margin-left:11px; margin-bottom:8px;margin-top:8px;}
 }
 
