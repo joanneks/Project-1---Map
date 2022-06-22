@@ -42,7 +42,8 @@
 }
 
 
-#visionMission{
+#faqAccordion{
+    font-family: 'Anek Malayalam', sans-serif;
     position:absolute;
     z-index:500;
     margin-left:12px;
@@ -50,7 +51,8 @@
     /* display: none; */
 }
 
-.missionList{
+.faqList{
+    font-family: 'Urbanist', sans-serif;
     padding-left:15px;
     padding-bottom:15px;
 }
@@ -136,30 +138,41 @@ body{
 
 @media screen and (max-width: 2560px) {
     #map{height:85vh;}
+    #faqAccordionScroll{max-height:300px;width:auto;overflow-y:auto;}
 }
 
 @media screen and (max-width: 1920px) {
     #map{height:75vh;}
 }
 
+
 @media screen and (max-width: 1180px) {
     #map{height:70vh;}
+    #faqAccordionScroll{max-height:260px;max-width:900px;overflow-y:auto;}
+}
+
+@media screen and (max-width: 991px) {
+    #map{height:70vh;}
+    #faqAccordionScroll{max-height:260px;max-width:700px;overflow-y:auto;}
 }
 
 @media screen and (max-width: 768px) {
     #map{height:78vh;}
+    #faqAccordionScroll{max-height:270px;max-width:500px;overflow-y:auto;}
 }
 
 @media screen and (max-width: 576px) {
     #break4 {width: 100%;}
     #break5 {width: 100%;}
     #map{height:72vh;}
+    #faqAccordionScroll{max-height:270px;max-width:400px;overflow-y:auto;}
 }
 
 @media screen and (max-width: 540px) {
     #break4 {width: 100%;}
     #break5 {width: 100%;}
     #map{height:70vh;}
+    #faqAccordionScroll{max-height:250px;max-width:350px;overflow-y:auto;}
 }
 
 @media screen and (max-width: 414px) {
@@ -168,6 +181,7 @@ body{
     #break5 {width: 0%;}
     #break6 {width: 100%;}
     #map{height:70vh;}
+    #faqAccordionScroll{max-height:250px;max-width:300px;overflow-y:auto;}
 }
 
 @media screen and (max-width: 375px) {
@@ -176,12 +190,14 @@ body{
     #break5 {width: 0%;}
     #break6 {width: 100%;}
     #map{height:65vh;}
+    #faqAccordionScroll{max-height:200px;overflow-y:auto;}
 }
 
 @media screen and (max-width: 280px) {
     #break1 {width: 100%;}
     #break6 {width: 0%;}
     #map{height:65vh;}
+    #faqAccordionScroll{max-height:180px;overflow-y:auto;}
     .collapsible {margin-left:11px; margin-bottom:8px;margin-top:8px;}
 }
 

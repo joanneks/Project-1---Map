@@ -6,7 +6,7 @@ async function searchResalePrice (){
     let resalePriceData = await axios.get(BASE_API_URL,{
         'params': {
           'resource_id': resource_id,
-            'limit': 258046 
+            'limit': 129124 
         }
     });
 
@@ -34,10 +34,11 @@ async function searchFlatTypeResults(radioBtn,radioBtnValue){
     let searchTownOption = document.querySelector('#searchTown');
     let searchTownOptionValue = searchTownOption.value;
     let resultFalseCount = 0;
+    let totalFalseCount = 2000
     console.log(radioBtnValue);
 
     try{
-    for (let i = 257046 ; i <= resalePriceInfo.length;i++){
+    for (let i = resalePriceInfo.length-totalFalseCount ; i <= resalePriceInfo.length;i++){
       let blkStreetName = resalePriceInfo[i].block + " " + resalePriceInfo[i].street_name;
       let monthTransacted = resalePriceInfo[i].month;
       let townTransacted = resalePriceInfo[i].town;
@@ -95,7 +96,7 @@ async function searchFlatTypeResults(radioBtn,radioBtnValue){
         // console.log('no result found');
         resultFalseCount++
         console.log(resultFalseCount)
-        if(resultFalseCount==1000){
+        if(resultFalseCount==totalFalseCount){
           resultsList.innerHTML = `
           <div class="container-fluid p-1">No results found</div>
           `
@@ -109,6 +110,11 @@ async function searchFlatTypeResults(radioBtn,radioBtnValue){
     resetBtn.addEventListener('click',function(){
     let resultsListParentDiv = document.querySelector('#resultsListParentDiv');
     resultsListParentDiv.innerHTML = ``;
+    radioBtn2Room.checked = false
+    radioBtn3Room.checked = false
+    radioBtn4Room.checked = false
+    radioBtn5Room.checked = false
+
 })
   });
 };
@@ -117,35 +123,6 @@ searchFlatTypeResults(radioBtn2Room,radioBtn2RoomValue)
 searchFlatTypeResults(radioBtn3Room,radioBtn3RoomValue)
 searchFlatTypeResults(radioBtn4Room,radioBtn4RoomValue)
 searchFlatTypeResults(radioBtn5Room,radioBtn5RoomValue)
-
-  //   let flatArea = resalePriceInfo[i].floor_area_sqm;
-  //   let flatStoreyRange = resalePriceInfo[i].storey_range.toLowerCase();
-
-  //   let kmToDegreeConverter = 1/111
-  //   let latBoundaryTop = parseFloat(searchLat) + parseFloat(searchRadius*kmToDegreeConverter);
-  //   let latBoundaryBottom = parseFloat(searchLat) - parseFloat(searchRadius*kmToDegreeConverter);
-  //   let lngBoundaryRight = parseFloat(searchLng) + parseFloat(searchRadius*kmToDegreeConverter);
-  //   let lngBoundaryLeft = parseFloat(searchLng)- parseFloat(searchRadius*kmToDegreeConverter);
-
-  //   const BASE_API_URL1 = "https://developers.onemap.sg/commonapi/search";
-  //       let postalSearch = await axios.get(BASE_API_URL1, {
-  //         'params': {
-  //           'searchVal': blkStreetName,
-  //           'returnGeom': 'Y',
-  //           'getAddrDetails': 'Y',
-  //         }
-  //       }).catch(function (err) {});
-  //   let lat = parseFloat(postalSearch.data.results[0].LATITUDE);
-  //   let lng = parseFloat(postalSearch.data.results[0].LONGITUDE);
-  //   let address = capitaliseFirstLetter(postalSearch.data.results[0].ADDRESS.toLowerCase());
-
-  //   try{
-  //     if(lat<latBoundaryTop && lat>latBoundaryBottom && lng<lngBoundaryRight && lg>lngBoundaryLeft && flatType==radioBtn3Room.value){
-  //       
-  //     };
-  //   } catch(err){};
-
-
 
 
 async function searchLastTransacted(latBoundaryTop,latBoundaryBottom,lngBoundaryRight,lngBoundaryLeft){

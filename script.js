@@ -19,17 +19,17 @@ for (i = 0; i < collapsible.length; i++) {
 //faq Popup
 let faq = document.querySelector('#faq');
 faq.addEventListener('click',function(){
-    let visionMission = document.querySelector('#visionMission');
-    visionMission.innerHTML = `
+    let faqAccordion = document.querySelector('#faqAccordion');
+    faqAccordion.innerHTML = `
             <div class="accordion-item">
             <div>
             <h2 class="accordion-header" id="headingOne">
-                <button class="accordion-button bg-info text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <button class="accordion-button bg-info text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="font-size:large;">
                     FAQs (Frequently Asked Questions)</button><button type="button" class="btn btn-danger" id="closeBtn" style="width:65px;" aria-label="Close">X</button>
             </h2>
             
                 <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                    <div class="accordion-body" id="visionMissionScroll" style="max-height:400px;width:auto;overflow-y:auto;">
+                    <div class="accordion-body" id="faqAccordionScroll">
                         <article>
                                 <section>
                                     <h2>Our Aim</h2>
@@ -37,12 +37,28 @@ faq.addEventListener('click',function(){
                                 </section>
                                 <section>
                                     <h2>How to Navigate</h2>
-                                    <p>Providing relevant information, such as last transacted prices and amenities within a certain radius, to help resale flat buyers:</p>
+                                    <p>Objective: to determine if the considered flat location has what you need and is worth the price</p>
                                         <ol>
-                                            <li class="missionList">Key in the postal code, set a radius for the flat block in consideration and click search</li>
-                                            <li class="missionList">Hover over the square icon on the top right of the map and select the amenities,healthcare</li>
-                                            <li class="missionList">Determine if the amenities/transport system nearby is what they desire</li>
-                                            <li class="missionList">Come to a conclusion if the price is worth for the degree of convenience/inconvenience</li>
+                                            <li class="faqList">Key in and search for the postal code and distance that you would like to view the surrounding amenities within</li>
+                                            <li class="faqList">Hover over the square icon on the top right of the map and select the items that you would like to view.</li>
+                                            <ul>
+                                                <li class="faqList">Select Last transacted flats to view the recent resale flat transactions within the distance set.</li>
+                                                <li class="faqList">This will provide you with the last transacted price, lease commencement year, flat type/area and other information</li>
+                                            </ul>
+                                            <li class="faqList">Select the Town and Flat Type to display the list of last transacted flats by that criteria</li>
+                                            <ul>
+                                                <li class="faqList">This will provide you with the last transacted price, lease commencement year, flat type/area and other information.</li>
+                                                <li class="faqList">This will provide you with gauge on the budget you will need to buy the desired flat type in that town</li>
+                                            </ul>
+                                        </ol>    
+                                    </p>
+                                </section>
+                                <section>
+                                    <p><h2>Food For Thought</h2></p>
+                                        <ol>
+                                            <li class="faqList">From the last transacted flat details, is the seller's asking price too high? </li>
+                                            <li class="faqList">Is the potential price that you might pay worth the location and the surrounding amenities?</li>
+                                            <li class="faqList">Should you consider another resale flat listing or another town for something cheaper or more affordable for your budget?</li>
                                         </ol>    
                                     </p>
                                 </section>
@@ -55,36 +71,8 @@ faq.addEventListener('click',function(){
     
     let closeBtn = document.querySelector('#closeBtn');
     closeBtn.addEventListener('click',function(){
-        visionMission.innerHTML = `
-        <div class="accordion-item" style="display:none">
-        <div>
-        <h2 class="accordion-header" id="headingOne">
-            <button class="accordion-button bg-info text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                Our Vision and Mission</button><button type="button" class="btn btn-danger" id="closeBtn" style="width:65px;" aria-label="Close">X</button>
-        </h2>
-        
-            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                <div class="accordion-body" id="visionMissionScroll" style="max-height:400px;width:auto;overflow-y:auto;">
-                    <article alt="Our Vision and Mission">
-                            <section>
-                                <h2>Our Vision</h2>
-                                <p>To be Singapore's number one tool in helping resale flat buyers with their purchase considerations</p>
-                            </section>
-                            <section>
-                                <h2>Our Mission</h2>
-                                <p>Providing relevant information, such as last transacted prices and amenities within a certain radius, to help resale flat buyers:</p>
-                                    <ol>
-                                        <li class="missionList">Determine the price benchmarks that sellers might be expecting</li>
-                                        <li class="missionList">Determine if the seller is selling above the average price for that area</li>
-                                        <li class="missionList">Determine if the amenities/transport system nearby is what they desire</li>
-                                        <li class="missionList">Come to a conclusion if the price is worth for the degree of convenience/inconvenience</li>
-                                    </ol>    
-                                </p>
-                            </section>
-                    </article>
-                </div>
-            </div>
-        </div>
+        faqAccordion.innerHTML = `
+        <div class="accordion-item" style="display:none"></div>
 `        
     });
     });
