@@ -172,7 +172,7 @@ body{
     #break4 {width: 100%;}
     #break5 {width: 100%;}
     #map{height:70vh;}
-    #faqAccordionScroll{max-height:250px;max-width:350px;overflow-y:auto;}
+    #faqAccordionScroll{max-height:260px;max-width:350px;overflow-y:auto;}
 }
 
 @media screen and (max-width: 414px) {
@@ -181,7 +181,7 @@ body{
     #break5 {width: 0%;}
     #break6 {width: 100%;}
     #map{height:70vh;}
-    #faqAccordionScroll{max-height:250px;max-width:300px;overflow-y:auto;}
+    #faqAccordionScroll{max-height:260px;max-width:300px;overflow-y:auto;}
 }
 
 @media screen and (max-width: 375px) {
@@ -190,14 +190,14 @@ body{
     #break5 {width: 0%;}
     #break6 {width: 100%;}
     #map{height:65vh;}
-    #faqAccordionScroll{max-height:240px;max-width:280px;overflow-y:auto;}
+    #faqAccordionScroll{max-height:260px;max-width:300px;overflow-y:auto;}
 }
 
 @media screen and (max-width: 280px) {
     #break1 {width: 100%;}
     #break6 {width: 0%;}
     #map{height:65vh;}
-    #faqAccordionScroll{max-height:240px;overflow-y:auto;}
+    #faqAccordionScroll{max-height:260px;max-width:250px;overflow-y:auto;}
     .collapsible {margin-left:11px; margin-bottom:8px;margin-top:8px;}
 }
 
