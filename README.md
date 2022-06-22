@@ -1,6 +1,6 @@
 # **EASY SEARCH**
  
-Access the live demo website [here](https://admirable-rolypoly-75e75e.netlify.app).
+Access the live demo website [here](https://easysearch-forflatbuyers.netlify.app).
 
 
 ## **Overview**
